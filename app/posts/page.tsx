@@ -73,7 +73,7 @@ export default function Posts() {
         <Link href='/posts/create' className='btn gap-x-2'>
           Add one post <Icon name='plus' className='text-xl' />
         </Link>
-      d</div>
+      </div>
       <div className='py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 rounded-md'>
         {data.map(post => (
           <Post {...post} key={`post-${post._id}`} />

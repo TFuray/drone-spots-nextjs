@@ -4,13 +4,19 @@ import Header from 'components/Header'
 export default function Home() {
   return (
     <div>
-      <Header>Next.js with TypeScript and MongoDB</Header>
+      <div>
+        <Header>
+          FPV Fly Spots
+          <br/>
+          {"{ Home Page }"}
+      </Header>
+      </div>
       <Link href='/posts' className='btn btn-ghost underline'>
-        Posts
+        Find Spots
       </Link>
-      <Link href='/weather' className='btn btn-ghost underline'>
+      {/* <Link href='/weather' className='btn btn-ghost underline'>
        Weather
-      </Link>
+      </Link> */}
     </div>
   )
 }
