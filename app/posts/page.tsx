@@ -1,10 +1,10 @@
 'use client'
-import Link from 'next/link'
-import useFetch, { revalidate } from 'http-react'
 import Icon from 'bs-icon'
+import useFetch, { revalidate } from 'http-react'
+import Link from 'next/link'
 
-import { IPost } from 'src/Models/Post'
 import Header from 'components/Header'
+import { IPost } from 'src/Models/Post'
 
 function confirmPostDelete(id: any) {
   const confirmation = confirm('Do you want to remove this post?')
@@ -63,7 +63,9 @@ export default function Posts() {
 
   return (
     <div>
-      <Header>Your posts ({data.length})</Header>
+      <Header>Your Spots ({data.length})</Header>
+      <div>
+      </div>
       <div className='flex space-x-4'>
         <Link href='/' className='btn gap-x-2 btn-ghost'>
           <Icon name='arrow-left' className='text-xl' /> Back
@@ -71,7 +73,7 @@ export default function Posts() {
         <Link href='/posts/create' className='btn gap-x-2'>
           Add one post <Icon name='plus' className='text-xl' />
         </Link>
-      </div>
+      d</div>
       <div className='py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 rounded-md'>
         {data.map(post => (
           <Post {...post} key={`post-${post._id}`} />

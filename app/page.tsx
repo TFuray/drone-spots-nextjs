@@ -8,6 +8,9 @@ export default function Home() {
       <Link href='/posts' className='btn btn-ghost underline'>
         Posts
       </Link>
+      <Link href='/weather' className='btn btn-ghost underline'>
+       Weather
+      </Link>
     </div>
   )
 }
