@@ -14,9 +14,9 @@ export default function Home() {
       <Link href='/posts' className='btn btn-ghost underline'>
         Find Spots
       </Link>
-      {/* <Link href='/weather' className='btn btn-ghost underline'>
-       Weather
-      </Link> */}
+      <Link href='/search' className='btn btn-ghost underline'>
+        Search By Location
+      </Link>
     </div>
   )
 }

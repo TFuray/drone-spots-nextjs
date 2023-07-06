@@ -11,6 +11,7 @@
     "@googlemaps/js-api-loader": "^1.16.2",
     "@react-google-maps/api": "^2.18.1",
     "autoprefixer": "^10.4.14",
+    "axios": "^1.4.0",
     "bs-icon": "^0.0.5",
     "daisyui": "^3.1.7",
     "http-react": "^3.0.5",
