@@ -1,46 +1,60 @@
-"use client";
+'use client'
 
-import { useState } from 'react';
+import axios from 'axios'
+import HomeButton from 'components/HomeButton'
 
-const WeatherPage = () => {
-  const [zipcode, setZipcode] = useState('');
-  const [weatherData, setWeatherData] = useState(null);
-  const [error, setError] = useState('');
+import { ChangeEvent, useState } from 'react'
+import DisplayData from './DisplayData'
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setZipcode(event.target.value);
-  };
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        `https://api.weatherapi.com/v1/current.json?key=6092087df5b6497faa0174746230407&q=${zipcode}&aqi=no`
-      );
-      const data = await response.json();
-      setWeatherData(data);
-      console.log(data)
-      setError('');
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      setWeatherData(null);
-      setError('Error fetching weather data');
+interface WeatherData {
+  location: {
+    name: string
+  }
+  current: {
+    temp_c: number
+    condition: {
+      text: string
     }
-  };
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    fetchData();
-  };
+  }
+}
+
+const Weather = (): JSX.Element => {
+  const [location, setLocation] = useState('')
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null)
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setLocation(e.target.value)
+  }
+
+  const getWeatherData = async () => {
+    try {
+      const response = await axios.get<WeatherData>(
+        `https://api.weatherapi.com/v1/current.json?key=2b97f312100a4bd099b180935230707 &q=${location}`
+      )
+      console.log(response.data)
+      setWeatherData(response.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Zipcode:
-          <input type="text" value={zipcode} onChange={handleInputChange} />
-        </label>
-        <button type="submit">Get Weather</button>
-      </form>
-    </div>
-  );
-};
+      <h1>Weather App</h1>
+      <input
+        type='text'
+        value={location}
+        onChange={handleInputChange}
+        placeholder='Enter location'
+      />
 
-export default WeatherPage;
+      <button onClick={getWeatherData}>Get Weather</button>
+      <div>
+        <DisplayData weatherData={weatherData} />
+      </div>
+      <HomeButton />
+    </div>
+  )
+}
+
+export default Weather

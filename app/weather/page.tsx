@@ -1,17 +1,19 @@
-
-import Header from "components/Header";
-import WeatherPage from "./WeatherPage";
+import Header from 'components/Header'
+import WeatherPage from './WeatherPage'
 
 const page = () => {
-
-  const apiKey = process.env.API_KEY;
+  const apiKey = process.env.API_KEY
   const url = `http://api.weatherapi.com/v1`
 
   return (
     <>
-      <Header>Get Flying Conditions</Header>
+      <div className='text-center'>
+        <Header>Get Flying Conditions</Header>
+      </div>
 
-      <WeatherPage />
+      <div className='grid justify-center'>
+        <WeatherPage />
+      </div>
     </>
   )
 }

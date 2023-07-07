@@ -16,12 +16,13 @@
     "daisyui": "^3.1.7",
     "http-react": "^3.0.5",
     "mongoose": "^7.1.0",
-    "next": "^13.4.1",
+    "next": "^13.4.9",
     "next-api-validation": "^1.0.5",
     "postcss": "^8.4.23",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-kuh": "^0.0.8",
+    "supports-color": "^9.4.0",
     "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
