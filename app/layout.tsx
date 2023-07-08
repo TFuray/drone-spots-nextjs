@@ -14,7 +14,7 @@ function MainLayout({ children }) {
         <body>
           <div className='p-8'>{children}</div>
           <Link
-            href='https://github.com/danybeltran/nextjs-typescript-and-mongodb'
+            href='https://github.com/tfuray'
             target='_blank'
             className='fixed bottom-2 left-2 btn btn-sm gap-x-2'
           >
