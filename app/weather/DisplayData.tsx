@@ -1,4 +1,3 @@
-import { collectGenerateParams } from 'next/dist/build/utils'
 import {
   East,
   North,
@@ -9,6 +8,7 @@ import {
   SouthWest,
   West
 } from 'public/arrows/Arrows'
+import '../../types/weather'
 
 const DisplayData = (weatherData: any): JSX.Element => {
   let data = weatherData.weatherData

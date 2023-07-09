@@ -6,9 +6,9 @@ import Icon from 'bs-icon'
 function MainLayout({ children }) {
   return (
     <FetchConfig baseUrl='/api'>
-      <html data-theme='luxury'>
+      <html data-theme='coffee'>
         <head>
-          <title>Next.js starter</title>
+          <title>Drone Mapr</title>
           <meta name='description' content='A Starter with Next.js' />
         </head>
         <body>

@@ -1,5 +1,4 @@
-
-export interface Weather {
+export interface WeatherData {
   location: Location
   current: Current
 }
