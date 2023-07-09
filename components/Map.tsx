@@ -10,8 +10,8 @@ const Map: NextPage = () => {
   const libraries = useMemo(() => ['places'], [])
   const mapCenter = useMemo(
     () => ({
-      lat: 38.433857385536584,
-      lng: -122.7162342207697
+      lat: 38.550146,
+      lng: -99.951224
     }),
     []
   )
@@ -37,13 +37,18 @@ const Map: NextPage = () => {
   return (
     <div className='flex justify-center items-center rounded-2xl '>
       <div className=' w-1/3 h-[65vh] mr-5 bg-base-300 rounded-xl flex'>
-        <div className='flex m-5 grow'>
-          <SearchBar />
+        <div className='m-5 grow prose'>
+          <h3>Pins Placeholder</h3>
+          <ul>
+            <li>list place holder</li>
+            <li>list place holder</li>
+            <li>list place holder</li>
+        </ul>
         </div>
       </div>
       <GoogleMap
         options={mapOptions}
-        zoom={14}
+        zoom={3.7}
         center={mapCenter}
         mapTypeId={google.maps.MapTypeId.ROADMAP}
         mapContainerStyle={{

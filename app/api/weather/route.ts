@@ -2,11 +2,11 @@ import axios from 'axios'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { WeatherData } from 'types/weather'
 
-export default async function getWeather(
+async function GET(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { location } = req.query
+  const { location } = req.body
   const API_KEY = process.env.API_KEY
 
   try {
@@ -20,3 +20,6 @@ export default async function getWeather(
     res.status(500).json({ error: 'An error occurred' })
   }
 }
+
+
+module.exports =  { GET}

@@ -14,6 +14,7 @@ function MainLayout({ children }) {
         <body>
           <div className='p-8'>{children}</div>
           <Link
+            as={'https://github.com/tfuray'}
             href='https://github.com/tfuray'
             target='_blank'
             className='fixed bottom-2 left-2 btn btn-sm gap-x-2'

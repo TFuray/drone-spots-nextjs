@@ -1,38 +1,44 @@
 'use client'
-import { useState } from 'react'
+import axios from 'axios'
+import { ChangeEvent, useState } from 'react'
+import { useWeatherStore } from 'store/store'
+import { WeatherData } from 'types/weather'
 
 const SearchBar = () => {
-  const [search, setSearch] = useState('')
-  const [data, setData] = useState(null)
+  const [location, setLocation] = useState('')
+  // const [weatherData, setWeatherData] = useState<WeatherData | null>(null)
+  const setWeatherData = useWeatherStore((state) => state.setWeatherData)
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value)
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setLocation(e.target.value)
   }
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    fetch('/api/search')
-      .then(res => res.json())
-      .then(data => setData(data))
-    setSearch('')
+  const getWeatherData = async () => {
+    try {
+      const response = await axios.get<WeatherData>(
+        `https://api.weatherapi.com/v1/current.json?key=2b97f312100a4bd099b180935230707 &q=${location}`
+      )
+      console.log(response.data)
+      setWeatherData(response.data)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
-    <div className='search-bar grow '>
-      <form onSubmit={onSubmit} className=''>
+    <div className='search-bar grow flex'>
         <input
-          className='form-control input input-bordered input-sm w-full grow '
+          className='input input-bordered input-sm w-full grow '
           type='text'
           placeholder='enter zipcode'
-          value={search}
-          onChange={handleSearch}
+          value={location}
+          onChange={handleInputChange}
         />
-        <div className='flex mt-3 justify-end'>
-          <button className='btn btn-sm btn-outline' type='submit'>
+        <div className='flex ml-2 justify-end'>
+          <button className='btn btn-sm btn-outline' onClick={getWeatherData}>
             Search
           </button>
         </div>
-      </form>
     </div>
   )
 }
