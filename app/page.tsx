@@ -8,9 +8,13 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { WeatherData } from 'types/weather'
 import 'leaflet/dist/leaflet.css'
+import dynamic from 'next/dynamic'
 
 
 export default function Home() {
+  const MapWithNoSSR = dynamic(() => import('components/Map'), {
+    ssr: false
+  })
   return (
     <>
       <div className='flex flex-col items-center mb-5 prose prose-xl prose-p:underline max-w-none '>
@@ -21,8 +25,8 @@ export default function Home() {
         <SearchBar />
         <DisplayData />
       </div>
-      <div id='map' style={{height: '360px'}}>
-        <Map />
+      <div id='map' style={{height: '660px'}}>
+        <MapWithNoSSR />
       </div>
     </>
   )

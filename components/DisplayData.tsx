@@ -53,11 +53,12 @@ const DisplayData = (): JSX.Element => {
   return (
     <>
       {data && (
-        <div className='grid justify-center col-span-1'>
+        <div className='grid prose justify-center col-span-1'>
+          <h1>{data.location.name}, {data.location.region}</h1>
           <div className=''>{displayDirection()}</div>
           <div>
             <h2 className='text-3xl font-bold'>
-              {data.current.wind_dir}
+              {data.current.wind_dir} @ {data.current.wind_mph} mph
             </h2>
           </div>
         </div>
