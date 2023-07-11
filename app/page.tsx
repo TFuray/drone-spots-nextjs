@@ -4,12 +4,12 @@ import DisplayData from 'components/DisplayData'
 import Header from 'components/Header'
 import Map from 'components/Map'
 import SearchBar from 'components/SearchBar'
+import 'leaflet/dist/leaflet.css'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useState } from 'react'
 import { WeatherData } from 'types/weather'
-import 'leaflet/dist/leaflet.css'
-import dynamic from 'next/dynamic'
-
+import SideBar from 'components/SideBar'
 
 export default function Home() {
   const MapWithNoSSR = dynamic(() => import('components/Map'), {
@@ -18,15 +18,23 @@ export default function Home() {
   return (
     <>
       <div className='flex flex-col items-center mb-5 prose prose-xl prose-p:underline max-w-none '>
-        <Header>Fly Now</Header>
+        <Header>Drone Map</Header>
         <p className=''>#1 Resource to find new places to fly</p>
       </div>
       <div className='w-1/3 mx-auto mb-5'>
         <SearchBar />
-        <DisplayData />
       </div>
-      <div id='map' style={{height: '660px'}}>
-        <MapWithNoSSR />
+      <div className='flex '>
+        <div className='w-1/2 bg-neutral border-4 rounded-[2.3rem] shadow-2xl'>
+          <SideBar />
+        </div>
+        <div
+          className='w-1/2 border-4 rounded-[2.3rem] shadow-2xl'
+          id='map'
+          style={{ height: '660px' }}
+        >
+          <MapWithNoSSR />
+        </div>
       </div>
     </>
   )

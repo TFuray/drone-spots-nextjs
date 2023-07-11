@@ -26,16 +26,16 @@ const SearchBar = () => {
   }
 
   return (
-    <div className='search-bar grow flex'>
+    <div className='search-bar grow fle'>
         <input
-          className='input input-bordered input-sm w-full grow '
+          className='input input-bordered border-2 border-white w-full grow '
           type='text'
           placeholder='enter zipcode'
           value={location}
           onChange={handleInputChange}
         />
-        <div className='flex ml-2 justify-end'>
-          <button className='btn btn-sm btn-outline' onClick={getWeatherData}>
+        <div className='flex ml-2 justify-center'>
+          <button className='btn mt-2 btn-outline border-2' onClick={getWeatherData}>
             Search
           </button>
         </div>

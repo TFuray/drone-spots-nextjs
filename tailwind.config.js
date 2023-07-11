@@ -20,29 +20,29 @@ module.exports = {
     require('daisyui')
   ],
   daisyui: {
-    themes: [
-      {
-        mytheme: {
-          primary: '#db15ce',
+    // themes: [
+    //   {
+    //     mytheme: {
+    //       primary: '#db15ce',
 
-          secondary: '#a6b728',
+    //       secondary: '#a6b728',
 
-          accent: '#0fc14d',
+    //       accent: '#0fc14d',
 
-          neutral: '#2b2e3b',
+    //       neutral: '#2b2e3b',
 
-          'base-100': '#324457',
+    //       'base-100': '#324457',
 
-          info: '#7cbaf4',
+    //       info: '#7cbaf4',
 
-          success: '#3de187',
+    //       success: '#3de187',
 
-          warning: '#edb054',
+    //       warning: '#edb054',
 
-          error: '#f7505e'
-        }
-      }
-    ],
+    //       error: '#f7505e'
+    //     }
+    //   }
+    // ],
     darkTheme: '', // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
