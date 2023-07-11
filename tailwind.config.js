@@ -1,4 +1,10 @@
 module.exports = {
+    content: [
+    './node_modules/flowbite-react/**/*.js',
+    './app/**/*.{ts,tsx}',
+    './public/**/*.html',
+    './components/**/*.{ts,tsx}'
+  ],
   purge: ['./app/**/*.tsx', './components/**/*.tsx'],
   media: false,
   variants: {
@@ -8,7 +14,11 @@ module.exports = {
     margin: ['responsive', 'hover', 'focus', 'active'],
     align: ['responsive', 'hover', 'focus', 'active']
   },
-  plugins: [require('@tailwindcss/typography'), require('daisyui')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('flowbite/plugin'),
+    require('daisyui')
+  ],
   daisyui: {
     themes: [
       {
@@ -40,5 +50,6 @@ module.exports = {
     rtl: false, // rotate style direction from left-to-right to right-to-left. You also need to add dir="rtl" to your html tag and install `tailwindcss-flip` plugin for Tailwind CSS.
     prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     logs: true // Shows info about daisyUI version and used config in the console when building your CSS
-  }
+  },
+
 }

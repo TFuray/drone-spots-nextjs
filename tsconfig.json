@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES2015",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["dom", "dom.iterable", "esnext", "ES2015"],
+    "sourceMap": true,
+    "declaration": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -27,8 +29,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/Map.tsx",
-    "app/api/weather/route.ts"
-, "public/arrows/arrows.tsx"  ],
+    "components/MapGoogle.tsx",
+    "app/api/weather/route.ts",
+    "public/arrows/arrows.tsx"
+  ],
   "exclude": ["node_modules"]
 }

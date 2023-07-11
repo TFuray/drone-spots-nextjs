@@ -1,17 +1,21 @@
-import { FetchConfig } from 'http-react'
-import './globals.css'
-import Link from 'next/link'
 import Icon from 'bs-icon'
+import NavBar from 'components/NavBar'
+import { FetchConfig } from 'http-react'
+import Link from 'next/link'
+import './globals.css'
 
 function MainLayout({ children }) {
   return (
     <FetchConfig baseUrl='/api'>
       <html data-theme='coffee'>
         <head>
-          <title>Drone Mapr</title>
-          <meta name='description' content='A Starter with Next.js' />
+          <title>Drone Map</title>
+          <meta name='description' content='Next.js' />
         </head>
         <body>
+          <nav>
+            <NavBar />
+          </nav>
           <div className='p-8'>{children}</div>
           <Link
             as={'https://github.com/tfuray'}
