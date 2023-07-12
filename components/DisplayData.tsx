@@ -77,10 +77,9 @@ const DisplayData = (): JSX.Element => {
                     openTab === 2 ? 'btn btn-primary ' : 'btn'
                   } inline-block px-4 py-2  rounded shadow`}
                 >
-                 Spots
+                  Spots
                 </button>
               </li>
-
             </ul>
             <div className=''>
               <div className={openTab === 1 ? 'block' : 'hidden'}>
@@ -127,9 +126,8 @@ const DisplayData = (): JSX.Element => {
                 )}
               </div>
               <div className={openTab === 2 ? 'block' : 'hidden'}>
-               <h2 className='prose-2xl mt-3'>Coming Soon</h2>
+                <h2 className='prose-2xl mt-3'>Coming Soon</h2>
               </div>
-
             </div>
           </div>
         </div>

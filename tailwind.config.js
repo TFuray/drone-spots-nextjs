@@ -1,5 +1,5 @@
 module.exports = {
-    content: [
+  content: [
     './node_modules/flowbite-react/**/*.js',
     './app/**/*.{ts,tsx}',
     './public/**/*.html',
@@ -20,36 +20,35 @@ module.exports = {
     require('daisyui')
   ],
   daisyui: {
-    // themes: [
-    //   {
-    //     mytheme: {
-    //       primary: '#db15ce',
+    themes: [
+      {
+        mytheme: {
+          primary: '#305a96',
 
-    //       secondary: '#a6b728',
+          secondary: '#d62a7d',
 
-    //       accent: '#0fc14d',
+          accent: '#fcccb5',
 
-    //       neutral: '#2b2e3b',
+          neutral: '#292735',
 
-    //       'base-100': '#324457',
+          'base-100': '#374151',
 
-    //       info: '#7cbaf4',
+          info: '#3c99c8',
 
-    //       success: '#3de187',
+          success: '#167958',
 
-    //       warning: '#edb054',
+          warning: '#cda40e',
 
-    //       error: '#f7505e'
-    //     }
-    //   }
-    // ],
-    darkTheme: '', // name of one of the included themes for dark mode
-    base: true, // applies background color and foreground color for root element by default
-    styled: true, // include daisyUI colors and design decisions for all components
-    utils: true, // adds responsive and modifier utility classes
-    rtl: false, // rotate style direction from left-to-right to right-to-left. You also need to add dir="rtl" to your html tag and install `tailwindcss-flip` plugin for Tailwind CSS.
-    prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
-    logs: true // Shows info about daisyUI version and used config in the console when building your CSS
-  },
-
+          error: '#e86c68'
+        }
+      }
+    ]
+    // darkTheme: '', // name of one of the included themes for dark mode
+    // base: true, // applies background color and foreground color for root element by default
+    // styled: true, // include daisyUI colors and design decisions for all components
+    // utils: true, // adds responsive and modifier utility classes
+    // rtl: false, // rotate style direction from left-to-right to right-to-left. You also need to add dir="rtl" to your html tag and install `tailwindcss-flip` plugin for Tailwind CSS.
+    // prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+    // logs: true // Shows info about daisyUI version and used config in the console when building your CSS
+  }
 }

@@ -3,6 +3,11 @@ export interface WeatherData {
   current: Current
 }
 
+export interface Coordinates {
+  latitude: number
+  longitude: number
+}
+
 export interface Current {
   last_updated_epoch: number
   last_updated: string
