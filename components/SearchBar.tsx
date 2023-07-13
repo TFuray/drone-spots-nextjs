@@ -7,26 +7,17 @@ import { WeatherData, Coordinates } from 'types/weather'
 
 const SearchBar = () => {
   const [location, setLocation] = useState('')
-  const [coordinates, setCoordinates] = useState<Coordinates | null>(null)
+  // const [coordinates, setCoordinates] = useState<Coordinates | null>(null)
 
   // const [weatherData, setWeatherData] = useState<WeatherData | null>(null)
   const setWeatherData = useWeatherStore(state => state.setWeatherData)
-  const setCoordinatesStore = useCoordinatesStore(state => state.setCoordinates)
+  const setCoordinates = useCoordinatesStore(state => state.setCoordinates)
+  const latitude = useCoordinatesStore(state => state.latitude)
+  const longitude = useCoordinatesStore(state => state.longitude)
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLocation(e.target.value)
   }
-
-  const setCoordinatesData = () => {
-    setCoordinatesStore({
-      latitude: coordinates?.latitude,
-      longitude: coordinates?.longitude,
-      setCoordinates: function (data: Coordinates): void {
-        throw new Error('Function not implemented.')
-      }
-    })
-  }
-
 
   const getWeatherData = async () => {
     try {
@@ -39,29 +30,13 @@ const SearchBar = () => {
         latitude: response.data.location.lat,
         longitude: response.data.location.lon
       })
-      console.log(coordinates)
-      setCoordinatesData()
     } catch (error) {
       console.error(error)
     }
   }
 
-  // const getLatLong = async () => {
-  //   try {
-  //     const response = await axios.get<Coordinates>(
-  //       `https://www.mapquestapi.com/geocoding/v1/address?key=VHXjnhoECljJuSMcuD1422ZCeRXXjH07&location=${location}`
-  //     )
-  //     setLanLng(response.data)
-  //     console.log(response.data)
-  //     console.log()
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
-
   const handleClick = () => {
     getWeatherData()
-    // getLatLong()
   }
 
   return (

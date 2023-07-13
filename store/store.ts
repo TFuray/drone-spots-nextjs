@@ -1,12 +1,13 @@
 import { WeatherData } from 'types/weather'
 import { create } from 'zustand'
+import { Coordinates } from 'types/weather'
 
 interface WeatherStore {
   weatherData: WeatherData | null
   setWeatherData: (data: WeatherData) => void
 }
 
-interface Coordinates {
+interface CoordinatesStore {
   latitude: number |  any
   longitude: number | any
   setCoordinates: (data: Coordinates) => void
@@ -18,8 +19,9 @@ export const useWeatherStore = create<WeatherStore>(set => ({
 
 }))
 
-export const useCoordinatesStore = create<Coordinates>(set => ({
-  latitude: null,
-  longitude: null,
-  setCoordinates: data => set({ latitude: data.latitude, longitude: data.longitude })
+export const useCoordinatesStore = create<CoordinatesStore>(set => ({
+  latitude: 68.5,
+  longitude: -120.7,
+  setCoordinates: data =>
+    set({ latitude: data.latitude, longitude: data.longitude })
 }))

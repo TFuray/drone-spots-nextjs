@@ -1,7 +1,6 @@
 export interface Coordinates {
-  info: Info
-  options: Options
-  results: Result[]
+  latitude: number | any
+  longitude: number | any
 }
 
 export interface Info {
