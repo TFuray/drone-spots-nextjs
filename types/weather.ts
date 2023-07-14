@@ -8,6 +8,11 @@ export interface Coordinates {
   longitude: number
 }
 
+export interface DraggingCoordinates {
+  lat: number
+  lng: number
+}
+
 export interface Current {
   last_updated_epoch: number
   last_updated: string

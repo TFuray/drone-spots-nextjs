@@ -1,6 +1,5 @@
-import { WeatherData } from 'types/weather'
+import { Coordinates, DraggingCoordinates, WeatherData } from 'types/weather'
 import { create } from 'zustand'
-import { Coordinates } from 'types/weather'
 
 interface WeatherStore {
   weatherData: WeatherData | null
@@ -8,15 +7,19 @@ interface WeatherStore {
 }
 
 interface CoordinatesStore {
-  latitude: number |  any
+  latitude: number | any
   longitude: number | any
   setCoordinates: (data: Coordinates) => void
+}
+interface DraggingCoordinatesStore {
+  lat: number | any
+  lng: number | any
+  setDraggingCoordinates: (data: DraggingCoordinates) => void
 }
 
 export const useWeatherStore = create<WeatherStore>(set => ({
   weatherData: null,
   setWeatherData: data => set({ weatherData: data })
-
 }))
 
 export const useCoordinatesStore = create<CoordinatesStore>(set => ({
@@ -25,3 +28,11 @@ export const useCoordinatesStore = create<CoordinatesStore>(set => ({
   setCoordinates: data =>
     set({ latitude: data.latitude, longitude: data.longitude })
 }))
+
+export const useDraggingCoordinatesStore = create<DraggingCoordinatesStore>(
+  set => ({
+    lat: null,
+    lng: null,
+    setDraggingCoordinates: data => set({ lat: data.lat, lng: data.lng })
+  })
+)
