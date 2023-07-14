@@ -5,21 +5,33 @@ export interface IPost extends Document {
   date: string
   content: string
   coordinates: { lat: number; lng: number }
+  location: {
+    city: string
+    state: string
+    Coordinates: {
+      latitude: number
+      longitude: number
+    }
+  }
+  imgUrl: string
 }
 
 const PostSchema: Schema = new Schema({
   title: {
     type: String
   },
-  date: {
-    type: String
+  location: {
+    city: { type: String },
+    state: { type: String },
+    Coordinates: {
+      latitude: { type: Number },
+      longitude: { type: Number }
+    }
   },
   content: {
     type: String
   },
-  coordinates: {
-    type: Object
-  }
+  imgUrl: { type: String }
 })
 
 export const Post = (mongoose.models.Post ||

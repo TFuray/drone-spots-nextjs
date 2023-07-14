@@ -2,7 +2,7 @@
 import axios from 'axios'
 import DisplayData from 'components/DisplayData'
 import Header from 'components/Header'
-import Map from 'components/Map'
+import Map from 'components/Map/Map'
 import SearchBar from 'components/SearchBar'
 import 'leaflet/dist/leaflet.css'
 import dynamic from 'next/dynamic'
@@ -12,7 +12,7 @@ import { WeatherData } from 'types/weather'
 import SideBar from 'components/SideBar'
 
 export default function Home() {
-  const MapWithNoSSR = dynamic(() => import('components/Map'), {
+  const MapWithNoSSR = dynamic(() => import('components/Map/Map'), {
     ssr: false
   })
   return (
@@ -26,11 +26,11 @@ export default function Home() {
       </div>
       {}
       <div className='flex '>
-        <div className='w-1/2 bg-neutral border-4 rounded-[2.3rem] shadow-2xl'>
+        <div className='w-1/2 bg-neutral border-4 rounded-[2.3rem] mr-2 shadow-2xl'>
           <SideBar />
         </div>
         <div
-          className='w-1/2 border-4 rounded-[2.3rem] shadow-2xl'
+          className='w-1/2 border-4 rounded-[2.3rem] shadow-2xl ml-2'
           id='map'
           style={{ height: '660px' }}
         >

@@ -1,9 +1,8 @@
 'use client'
 import axios from 'axios'
 import { ChangeEvent, useState } from 'react'
-import { useWeatherStore, useCoordinatesStore } from 'store/store'
-import { WeatherData, Coordinates } from 'types/weather'
-
+import { useCoordinatesStore, useWeatherStore } from 'store/store'
+import { Coordinates, WeatherData } from 'types/weather'
 
 const SearchBar = () => {
   const [location, setLocation] = useState('')
@@ -24,7 +23,6 @@ const SearchBar = () => {
       const response = await axios.get<WeatherData>(
         `https://api.weatherapi.com/v1/current.json?key=2b97f312100a4bd099b180935230707 &q=${location}`
       )
-      console.log(response.data)
       setWeatherData(response.data)
       setCoordinates({
         latitude: response.data.location.lat,
@@ -43,16 +41,13 @@ const SearchBar = () => {
     <div className='search-bar grow fle'>
       <input
         className='input input-bordered border-2 border-white w-full grow '
-        type='text'
+        type='search'
         placeholder='enter zipcode'
         value={location}
         onChange={handleInputChange}
       />
       <div className='flex ml-2 justify-center'>
-        <button
-          className='btn mt-2 btn-outline border-2'
-          onClick={handleClick}
-        >
+        <button className='btn mt-2 btn-outline border-2' onClick={handleClick}>
           Search
         </button>
       </div>

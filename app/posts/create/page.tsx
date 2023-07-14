@@ -1,11 +1,11 @@
 'use client'
-import { useMemo } from 'react'
 import { useRouter } from 'next/navigation'
+import { useMemo } from 'react'
 import { useObject } from 'react-kuh'
 
-import Link from 'next/link'
 import Icon from 'bs-icon'
 import useFetch, { revalidate } from 'http-react'
+import Link from 'next/link'
 
 import Header from 'components/Header'
 import Input from 'components/Input'
@@ -19,6 +19,15 @@ export default function Create() {
 
   const [post, setPost] = useObject({
     title: '',
+    location: {
+      city: '',
+      state: '',
+      coordinates: {
+        latitude: '',
+        longitude: ''
+      }
+    },
+    imgUrl: '',
     content: ''
   })
 
@@ -43,8 +52,8 @@ export default function Create() {
       <Link href='/posts' className='btn gap-x-2 btn-ghost'>
         <Icon name='arrow-left' className='text-xl' /> Back
       </Link>
-      <Header>Add post</Header>
-      <div className='flex flex-wrap w-full md:w-96 items-center justify-center space-y-2'>
+      <Header>Add Spot</Header>
+      <div className='flex flex-wrap gap-2 w-full md:w-96 items-center justify-center space-y-2'>
         <div className='w-full'>
           <Input
             value={post.title}
@@ -57,9 +66,81 @@ export default function Create() {
             placeholder='Title'
           />
         </div>
+        <div className='w-5/12'>
+          <Input
+            value={post.location.city}
+            name='location.city'
+            onChange={e =>
+              setPost.write({
+                location: { ...post.location, city: e.target.value }
+              })
+            }
+            placeholder='City'
+          />
+        </div>
+        <div className='w-5/12'>
+          <Input
+            value={post.location.state}
+            name='location.state'
+            onChange={e =>
+              setPost.write({
+                location: { ...post.location, state: e.target.value }
+              })
+            }
+            placeholder='State'
+          />
+        </div>
+        <div className='w-5/12'>
+          <Input
+            value={post.location.coordinates.latitude}
+            name='location.coordinates.latitude'
+            onChange={e =>
+              setPost.write({
+                location: {
+                  ...post.location,
+                  coordinates: {
+                    ...post.location.coordinates,
+                    latitude: e.target.value
+                  }
+                }
+              })
+            }
+            placeholder='Latitude'
+          />
+        </div>
+        <div className='w-5/12'>
+          <Input
+            value={post.location.coordinates.longitude}
+            name='location.coordinates.longitude'
+            onChange={e =>
+              setPost.write({
+                location: {
+                  ...post.location,
+                  coordinates: {
+                    ...post.location.coordinates,
+                    longitude: e.target.value
+                  }
+                }
+              })
+            }
+            placeholder='Longitude'
+          />
+        </div>
+        <div className='w-full'>
+          <Input
+            value={post.imgUrl}
+            name='imgUrl'
+            onChange={e =>
+              setPost.write({
+                imgUrl: e.target.value
+              })
+            }
+            placeholder='Image URL'
+          />
+        </div>
         <div className='w-full'>
           <textarea
-            placeholder='Content'
+            placeholder='Description'
             className='textarea textarea-bordered h-32 resize-none w-full'
             name='content'
             onChange={e =>
