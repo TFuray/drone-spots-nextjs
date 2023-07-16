@@ -11,6 +11,7 @@ import {
 } from 'public/arrows/Arrows'
 import { useState } from 'react'
 import { useWeatherStore } from '../store/store'
+import Spot from './Spot'
 
 const DisplayData = (): JSX.Element => {
   const [openTab, setOpenTab] = useState(1)
@@ -126,7 +127,9 @@ const DisplayData = (): JSX.Element => {
                 )}
               </div>
               <div className={openTab === 2 ? 'block' : 'hidden'}>
-                <h2 className='prose-2xl text-neutral-content mt-3'>Coming Soon</h2>
+                <div>
+                  <Spot />
+                </div>
               </div>
             </div>
           </div>

@@ -20,16 +20,19 @@ export default function Create() {
   const router = useRouter()
 
   const { lat, lng } = useDraggingCoordinatesStore(state => state)
+  const setDraggingCoordinates = useDraggingCoordinatesStore(
+    state => state.setDraggingCoordinates
+  )
 
   const [post, setPost] = useObject({
     title: '',
     location: {
       city: '',
-      state: '',
-      coordinates: {
-        latitude: '',
-        longitude: ''
-      }
+      state: ''
+    },
+    coordinates: {
+      latitude: lat,
+      longitude: lng
     },
     imgUrl: '',
     content: ''
@@ -58,7 +61,7 @@ export default function Create() {
   return (
     <div className='flex justify-around'>
       <div>
-        <Link href='/posts' className='btn gap-x-2 btn-ghost'>
+        <Link href='/' className='btn gap-x-2 btn-ghost'>
           <Icon name='arrow-left' className='text-xl' /> Back
         </Link>
         <Header>Add Spot</Header>
@@ -105,11 +108,14 @@ export default function Create() {
               name='location.coordinates.latitude'
               onChange={e =>
                 setPost.write({
-                  location: {
-                    ...post.location,
-                    coordinates: {
-                      ...post.location.coordinates,
-                      latitude: e.target.value
+                  coordinates: {
+                    ...post.coordinates,
+                    latitude: {
+                      ...post.coordinates,
+                      latitude: setDraggingCoordinates({
+                        lat: Number(e.target.value),
+                        lng
+                      })
                     }
                   }
                 })
@@ -123,11 +129,14 @@ export default function Create() {
               name='location.coordinates.longitude'
               onChange={e =>
                 setPost.write({
-                  location: {
-                    ...post.location,
-                    coordinates: {
-                      ...post.location.coordinates,
-                      longitude: e.target.value
+                  coordinates: {
+                    ...post.coordinates,
+                    longitude: {
+                      ...post.coordinates,
+                      longitude: setDraggingCoordinates({
+                        lat,
+                        lng: Number(e.target.value)
+                      })
                     }
                   }
                 })

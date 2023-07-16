@@ -1,3 +1,4 @@
+import { latLng } from 'leaflet'
 import 'leaflet-defaulticon-compatibility'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import 'leaflet/dist/leaflet.css'
@@ -24,17 +25,18 @@ const MapDragMarker: React.FC = () => {
         }
       }
     }),
-    [setDraggingCoordinates]
+    [markerRef]
   )
 
   // useEffect(() => {
   //   console.log(markerRef.current)
-  // }, [])
+  // }, [markerRef])
 
   return (
     <MapContainer
-      center={[38.5, -121.7]}
-      zoom={5}
+      center={[lat, lng]}
+      zoom={14
+      }
       scrollWheelZoom={true}
       style={{ height: '100%', width: '100%', borderRadius: '2rem' }}
     >
@@ -50,7 +52,7 @@ const MapDragMarker: React.FC = () => {
         ref={markerRef}
       >
         <Popup>
-          {lat} {lng}Drag Marker to Spot You Want To Save
+          {lat} {lng}
         </Popup>
       </Marker>
     </MapContainer>

@@ -1,17 +1,16 @@
-import mongoose, { Document, model, Model, Schema } from 'mongoose'
+import mongoose, { Decimal128, Document, model, Model, Schema } from 'mongoose'
 
 export interface IPost extends Document {
   title: string
   date: string
   content: string
-  coordinates: { lat: number; lng: number }
   location: {
     city: string
     state: string
-    Coordinates: {
-      latitude: number
-      longitude: number
-    }
+  }
+  coordinates: {
+    latitude: Decimal128
+    longitude: Decimal128
   }
   imgUrl: string
 }
@@ -22,11 +21,11 @@ const PostSchema: Schema = new Schema({
   },
   location: {
     city: { type: String },
-    state: { type: String },
-    Coordinates: {
-      latitude: { type: Number },
-      longitude: { type: Number }
-    }
+    state: { type: String }
+  },
+  coordinates: {
+    latitude: { type: Number },
+    longitude: { type: Number }
   },
   content: {
     type: String

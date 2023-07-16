@@ -6,9 +6,6 @@ import { Coordinates, WeatherData } from 'types/weather'
 
 const SearchBar = () => {
   const [location, setLocation] = useState('')
-  // const [coordinates, setCoordinates] = useState<Coordinates | null>(null)
-
-  // const [weatherData, setWeatherData] = useState<WeatherData | null>(null)
   const setWeatherData = useWeatherStore(state => state.setWeatherData)
   const setCoordinates = useCoordinatesStore(state => state.setCoordinates)
   const latitude = useCoordinatesStore(state => state.latitude)
