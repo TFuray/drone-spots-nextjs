@@ -64,7 +64,7 @@ const DisplayData = (): JSX.Element => {
                 <button
                   onClick={() => setOpenTab(1)}
                   className={` ${
-                    openTab === 1 ? 'btn btn-primary ' : 'btn'
+                    openTab === 1 ? 'btn btn-secondary  ' : 'btn btn-outline outline outline-2 btn-secondary'
                   } inline-block px-4 py-2 rounded shadow`}
                 >
                   Weather Conditions
@@ -74,8 +74,8 @@ const DisplayData = (): JSX.Element => {
                 <button
                   onClick={() => setOpenTab(2)}
                   className={` ${
-                    openTab === 2 ? 'btn btn-primary ' : 'btn'
-                  } inline-block px-4 py-2  rounded shadow`}
+                    openTab === 2 ? 'btn btn-secondary ' : 'btn btn-outline outline outline-2 btn-secondary'
+                  } inline-block font-bold px-4 py-2  rounded shadow`}
                 >
                   Spots
                 </button>
@@ -84,36 +84,36 @@ const DisplayData = (): JSX.Element => {
             <div className=''>
               <div className={openTab === 1 ? 'block' : 'hidden'}>
                 {data ? (
-                  <div className='grid grid-cols-2 justify-center prose prose-h2:mt-4 text-center prose-img:m-auto'>
+                  <div className='grid grid-cols-2 justify-center prose text-neutral-content prose-h2:mt-4 text-center prose-img:m-auto'>
                     <div className='col-span-2 justify-self-center mt-2'>
-                      <h1>
+                      <h1 className='text-neutral-content'>
                         {data.location.name}, {data.location.region}
                       </h1>
-                      <h4>Local Time:</h4>
-                      <h4>{data.location.localtime}</h4>
+                      <h4 className='text-neutral-content'>Local Time:</h4>
+                      <h4 className='text-neutral-content'>{data.location.localtime}</h4>
                     </div>
 
                     <div className='ml-3 justify-self-center'>
-                      <h2 className='text-xl underline'>Wind</h2>
+                      <h2 className='text-xl underline text-neutral-content'>Wind</h2>
                       {displayDirection()}
-                      <h2 className='text-xl'>
+                      <h2 className='text-xl text-neutral-content'>
                         {data.current.wind_dir} @ {data.current.wind_mph} mph
                       </h2>
                     </div>
 
                     <div className='ml-3 justify-self-center'>
-                      <h2 className='text-xl underline'>Weather </h2>
+                      <h2 className='text-xl underline text-neutral-content'>Weather </h2>
                       <img
                         className='w-48'
                         src={data.current.condition.icon}
                         alt=''
                       />
-                      <h2 className='text-xl'>
+                      <h2 className='text-xl text-neutral-content'>
                         {data.current.temp_f}^F & {data.current.condition.text}
                       </h2>
                     </div>
                     <div className='col-span-2'>
-                      <h2>
+                      <h2 className='text-neutral-content'>
                         Cloud Coverage {data.current.cloud}% & Visibility{' '}
                         {data.current.vis_miles} miles
                       </h2>
@@ -126,7 +126,7 @@ const DisplayData = (): JSX.Element => {
                 )}
               </div>
               <div className={openTab === 2 ? 'block' : 'hidden'}>
-                <h2 className='prose-2xl mt-3'>Coming Soon</h2>
+                <h2 className='prose-2xl text-neutral-content mt-3'>Coming Soon</h2>
               </div>
             </div>
           </div>

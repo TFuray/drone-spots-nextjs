@@ -25,15 +25,15 @@ module.exports = {
         mytheme: {
           primary: '#305a96',
 
-          secondary: '#d62a7d',
+          secondary: '#2E8D90',
 
-          accent: '#fcccb5',
+          accent: '#D2362F',
 
-          neutral: '#292735',
+          neutral: '#B7C3D3',
 
           'base-100': '#374151',
 
-          info: '#3c99c8',
+          info: '#EF7740',
 
           success: '#167958',
 

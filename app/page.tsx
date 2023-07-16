@@ -17,7 +17,7 @@ export default function Home() {
   })
   return (
     <>
-      <div className='flex flex-col items-center mb-5 prose prose-xl prose-p:underline max-w-none '>
+      <div className='flex flex-col items-center mb-5 prose prose-xl prose-p:bold max-w-none '>
         <Header>Drone Map</Header>
         <p className=''>#1 Resource to find new places to fly</p>
       </div>

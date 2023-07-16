@@ -24,12 +24,12 @@ const MapDragMarker: React.FC = () => {
         }
       }
     }),
-    []
+    [setDraggingCoordinates]
   )
 
-  useEffect(() => {
-    console.log(markerRef.current)
-  }, [])
+  // useEffect(() => {
+  //   console.log(markerRef.current)
+  // }, [])
 
   return (
     <MapContainer
@@ -44,7 +44,7 @@ const MapDragMarker: React.FC = () => {
       />
       <Marker
         eventHandlers={eventHandlers}
-        position={[38.5, -121.7]}
+        position={[lat, lng]}
         draggable={true}
         animate={true}
         ref={markerRef}

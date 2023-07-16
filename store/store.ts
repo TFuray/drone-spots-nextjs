@@ -31,8 +31,8 @@ export const useCoordinatesStore = create<CoordinatesStore>(set => ({
 
 export const useDraggingCoordinatesStore = create<DraggingCoordinatesStore>(
   set => ({
-    lat: null,
-    lng: null,
+    lat: 38,
+    lng: -120.7,
     setDraggingCoordinates: data => set({ lat: data.lat, lng: data.lng })
   })
 )
