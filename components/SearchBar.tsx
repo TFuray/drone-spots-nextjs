@@ -3,6 +3,7 @@ import axios from 'axios'
 import { ChangeEvent, useState } from 'react'
 import { useCoordinatesStore, useWeatherStore } from 'store/store'
 import { Coordinates, WeatherData } from 'types/weather'
+import { Button } from '@rewind-ui/core'
 
 const SearchBar = () => {
   const [location, setLocation] = useState('')
@@ -44,6 +45,7 @@ const SearchBar = () => {
         onChange={handleInputChange}
       />
       <div className='grid'>
+        <Button color='black' size='sm'>Search</Button>
         <button className='btn grid btn-outline border-secondary border-2' onClick={handleClick}>
           Search
         </button>

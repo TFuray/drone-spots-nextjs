@@ -3,6 +3,8 @@ import Icon from 'bs-icon'
 import useFetch, { revalidate } from 'http-react'
 import Link from 'next/link'
 
+import { Card } from '@rewind-ui/core'
+
 import Header from 'components/Header'
 import { IPost } from 'src/Models/Post'
 
@@ -30,14 +32,18 @@ function Post(props: Partial<IPost>) {
   })
 
   return (
-    <li
-      style={{
-        transition: '0.12s'
-      }}
-      className='text-primary-content p-4 relative break-words rounded-lg '
+    <div
+      // style={{
+      //   transition: '0.12s'
+      // }}
+      // className='text-primary-content p-4 relative break-words rounded-lg leading-3 '
       key={`post-${props._id}`}
     >
-      <button
+      <Card color='slate' shadow='md' size='sm'>
+        <Card.Header>{props.title}</Card.Header>
+        <Card.Body>{props.content}</Card.Body>
+      </Card>
+      {/* <button
         className='btn btn-ghost text-primary-content font-semibold absolute top-1 right-1 cursor-pointer'
         onClick={() => confirmPostDelete(fetchID)}
       >
@@ -45,8 +51,8 @@ function Post(props: Partial<IPost>) {
       </button>
       <b className=' text-black my-2'>{props.title}</b>
       <br />
-      <p className='my-4 text-black'>{props.content}</p>
-    </li>
+      <p className='my-4 text-black'>{props.content}</p> */}
+    </div>
   )
 }
 
@@ -63,7 +69,9 @@ export default function Spot() {
 
   return (
     <div>
-      <ul className='py-4 grid grid-cols-1 rounded-md'>
+      <ul
+        // className='py-4 grid grid-cols-1 rounded-md'
+      >
         {data.map(post => (
           <Post {...post} key={`post-${post._id}`} />
         ))}

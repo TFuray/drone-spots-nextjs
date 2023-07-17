@@ -52,7 +52,8 @@ const MapDragMarker: React.FC = () => {
         ref={markerRef}
       >
         <Popup>
-          {lat} {lng}
+          <p>latitude: {lat} <br/> longitude: {lng}</p>
+          {lat} , {lng}
         </Popup>
       </Marker>
     </MapContainer>
