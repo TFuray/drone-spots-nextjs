@@ -24,6 +24,8 @@ export default function Create() {
     state => state.setDraggingCoordinates
   )
 
+  console.log(lat)
+
   const [post, setPost] = useObject({
     title: '',
     location: {

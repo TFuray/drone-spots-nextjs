@@ -1,3 +1,4 @@
+import { mountStoreDevtool } from 'simple-zustand-devtools'
 import { Coordinates, DraggingCoordinates, WeatherData } from 'types/weather'
 import { create } from 'zustand'
 
@@ -36,3 +37,9 @@ export const useDraggingCoordinatesStore = create<DraggingCoordinatesStore>(
     setDraggingCoordinates: data => set({ lat: data.lat, lng: data.lng })
   })
 )
+
+if (process.env.NODE_ENV === 'development') {
+  mountStoreDevtool('WeatherStore', useWeatherStore)
+  mountStoreDevtool('CoordinatesStore', useCoordinatesStore)
+  mountStoreDevtool('DraggingCoordinatesStore', useDraggingCoordinatesStore)
+}

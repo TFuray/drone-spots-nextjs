@@ -25,7 +25,7 @@ const MapDragMarker: React.FC = () => {
         }
       }
     }),
-    [markerRef]
+    []
   )
 
   // useEffect(() => {
