@@ -7,7 +7,7 @@ import ControlPanel from 'components/mapBox/ControlPanel'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 const MAPBOX_TOKEN =
-  'pk.eyJ1Ijoib3R0ZXI3MDciLCJhIjoiY2xqeHh0M2hqMDRnazNrcWU5MzVqMml6YSJ9.T3txdvzcprGNOEKojg68kA' // Set your mapbox token here
+  'pk.eyJ1Ijoib3R0ZXI3MDciLCJhIjoiY2xqeHh0M2hqMDRnazNrcWU5MzVqMml6YSJ9.T3txdvzcprGNOEKojg68kA'
 
 export default function Home() {
 
