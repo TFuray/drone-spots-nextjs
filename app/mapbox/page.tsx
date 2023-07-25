@@ -6,6 +6,7 @@ import ControlPanel from 'components/mapBox/ControlPanel'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
 
+// move token to env
 const MAPBOX_TOKEN =
   'pk.eyJ1Ijoib3R0ZXI3MDciLCJhIjoiY2xqeHh0M2hqMDRnazNrcWU5MzVqMml6YSJ9.T3txdvzcprGNOEKojg68kA'
 
