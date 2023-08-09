@@ -24,7 +24,6 @@ export default function Home() {
       <div className='w-1/3 mx-auto mb-5'>
         <SearchBar />
       </div>
-      {}
       <div className='flex '>
         <div className='w-1/2 bg-neutral border-4 rounded-[2.3rem] mr-2 shadow-2xl'>
           <div className='float-right'>
