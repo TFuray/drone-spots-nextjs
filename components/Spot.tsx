@@ -70,11 +70,32 @@ export default function Spot() {
   return (
     <div>
       <ul
-        // className='py-4 grid grid-cols-1 rounded-md'
+      // className='py-4 grid grid-cols-1 rounded-md'
       >
-        {data.map(post => (
-          <Post {...post} key={`post-${post._id}`} />
-        ))}
+          <div className='overflow-x-auto'>
+            <table className='table'>
+              {/* head */}
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Location</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* row 1 */}
+        {data.map((post, index) => (
+                <tr>
+                  <th>{index + 1}</th>
+                  <td>{post.title}</td>
+                  <td>{post.location.city.toUpperCase()}, {post.location.state.toUpperCase()}</td>
+                  <td>{post.content}</td>
+                </tr>
+              ))}
+              </tbody>
+            </table>
+          </div>
       </ul>
     </div>
   )
