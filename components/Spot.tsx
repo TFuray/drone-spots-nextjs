@@ -80,17 +80,19 @@ export default function Spot() {
                   <th></th>
                   <th>Name</th>
                   <th>Location</th>
-                  <th>Description</th>
+                <th>Description</th>
+                <th>Pin</th>
                 </tr>
               </thead>
               <tbody>
                 {/* row 1 */}
         {data.map((post, index) => (
-                <tr>
+                <tr key={index}>
                   <th>{index + 1}</th>
                   <td>{post.title}</td>
                   <td>{post.location.city.toUpperCase()}, {post.location.state.toUpperCase()}</td>
                   <td>{post.content}</td>
+                  <td><a href=''>Show on Map</a></td>
                 </tr>
               ))}
               </tbody>
