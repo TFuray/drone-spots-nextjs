@@ -15,6 +15,8 @@ import { useWeatherStore } from '../store/store'
 const WeatherBar = (): JSX.Element => {
   const data = useWeatherStore(state => state.weatherData)
 
+
+
   const displayDirection = () => {
     if (!data) return <div>loading</div>
     if (data.current.wind_dir === 'N') {
@@ -54,8 +56,24 @@ const WeatherBar = (): JSX.Element => {
 
   return (
     <>
-      <div className='flex'>
-      <div>{data?.location.name}</div>
+      <div className='flex gap-2'>
+        <div className='self-center items-center font-bold'>
+          {data?.location.name ? (
+            <div>
+              {data.location.name}, <br />
+              {data.location.region}
+            </div>
+          ) : (
+            'location'
+          )}
+        </div>
+        <div className='self-center text-center font- '>
+          <h2 className='underline text-neutral-content font-bold'>Wind</h2>
+          <div className='flex justify-center'>{displayDirection()}</div>
+          <h2 className='text-neutral-content'>
+            {data?.current.wind_dir} @ {data?.current.wind_mph} mph
+          </h2>
+        </div>
       </div>
     </>
   )

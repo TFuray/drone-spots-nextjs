@@ -14,7 +14,7 @@ import { useWeatherStore } from '../store/store'
 import Spot from './Spot'
 
 const DisplayData = (): JSX.Element => {
-  const [openTab, setOpenTab] = useState(1)
+  const [openTab, setOpenTab] = useState(2)
 
   const data = useWeatherStore(state => state.weatherData)
   console.log(data)
