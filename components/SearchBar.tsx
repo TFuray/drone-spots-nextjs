@@ -6,7 +6,7 @@ import { Coordinates, WeatherData } from 'types/weather'
 import { Button } from '@rewind-ui/core'
 
 const SearchBar = () => {
-  const [location, setLocation] = useState('')
+  const [location, setLocation] = useState('95403')
   const setWeatherData = useWeatherStore(state => state.setWeatherData)
   const setCoordinates = useCoordinatesStore(state => state.setCoordinates)
   const latitude = useCoordinatesStore(state => state.latitude)

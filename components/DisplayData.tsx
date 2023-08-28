@@ -14,7 +14,7 @@ import { useWeatherStore } from '../store/store'
 import Spot from './Spot'
 
 const DisplayData = (): JSX.Element => {
-  const [openTab, setOpenTab] = useState(1)
+  const [openTab, setOpenTab] = useState(2)
 
   const data = useWeatherStore(state => state.weatherData)
   console.log(data)
@@ -61,7 +61,7 @@ const DisplayData = (): JSX.Element => {
         <div className='container mx-auto mt-12'>
           <div className='flex flex-col items-center justify-center max-w-xl'>
             <ul className='flex space-x-2'>
-              <li>
+              {/* <li>
                 <button
                   onClick={() => setOpenTab(1)}
                   className={` ${
@@ -70,7 +70,7 @@ const DisplayData = (): JSX.Element => {
                 >
                   Weather Conditions
                 </button>
-              </li>
+              </li> */}
               <li>
                 <button
                   onClick={() => setOpenTab(2)}
@@ -82,7 +82,7 @@ const DisplayData = (): JSX.Element => {
                 </button>
               </li>
             </ul>
-            <div className=''>
+            {/* <div className=''>
               <div className={openTab === 1 ? 'block' : 'hidden'}>
                 {data ? (
                   <div className='grid grid-cols-2 justify-center prose text-neutral-content prose-h2:mt-4 text-center prose-img:m-auto'>
@@ -125,7 +125,7 @@ const DisplayData = (): JSX.Element => {
                     Enter Zip Code To See Weather
                   </h2>
                 )}
-              </div>
+              </div> */}
               <div className={openTab === 2 ? 'block' : 'hidden'}>
                 <div>
                   <Spot />
@@ -134,7 +134,7 @@ const DisplayData = (): JSX.Element => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   )
 }

@@ -1,8 +1,8 @@
 export const West = (): JSX.Element => {
   return (
     <svg
-      width='50.000885mm'
-      height='50.000854mm'
+      width='10.000885mm'
+     height='10.000854mm'
       viewBox='0 0 50.000885 50.000854'
       version='1.1'
       id='svg5'
@@ -83,8 +83,8 @@ export const West = (): JSX.Element => {
 export const North = (): JSX.Element => {
   return (
     <svg
-      width='50.000854mm'
-      height='50.000885mm'
+      width='10.000854mm'
+     height='10.000885mm'
       viewBox='0 0 50.000854 50.000885'
       version='1.1'
       id='svg5'
@@ -163,8 +163,8 @@ export const North = (): JSX.Element => {
 export const NorthEast = (): JSX.Element => {
   return (
     <svg
-      width='49.998711mm'
-      height='49.998722mm'
+      width='10.998711mm'
+      height='10.998722mm'
       viewBox='0 0 49.998711 49.998722'
       version='1.1'
       id='svg5'
@@ -245,8 +245,8 @@ export const NorthEast = (): JSX.Element => {
 export const NorthWest = (): JSX.Element => {
   return (
     <svg
-      width='50.017033mm'
-      height='50.017006mm'
+      width='10.017033mm'
+     height='10.017006mm'
       viewBox='0 0 50.017033 50.017006'
       version='1.1'
       id='svg5'
@@ -326,8 +326,8 @@ export const NorthWest = (): JSX.Element => {
 export const South = (): JSX.Element => {
   return (
     <svg
-      width='50.009312mm'
-      height='50.00927mm'
+      width='10.009312mm'
+     height='10.00927mm'
       viewBox='0 0 50.009312 50.00927'
       version='1.1'
       id='svg5'
@@ -407,8 +407,8 @@ export const South = (): JSX.Element => {
 export const East = (): JSX.Element => {
   return (
     <svg
-      width='50.000885mm'
-      height='50.000854mm'
+      width='10.000885mm'
+     height='10.000854mm'
       viewBox='0 0 50.000885 50.000854'
       version='1.1'
       id='svg5'
@@ -488,8 +488,8 @@ export const East = (): JSX.Element => {
 export const SouthWest = (): JSX.Element => {
   return (
     <svg
-      width='50.017006mm'
-      height='50.017033mm'
+      width='10.017006mm'
+     height='10.017033mm'
       viewBox='0 0 50.017006 50.017033'
       version='1.1'
       id='svg5'
@@ -569,8 +569,8 @@ export const SouthWest = (): JSX.Element => {
 export const SouthEast = (): JSX.Element => {
   return (
     <svg
-      width='50.017033mm'
-      height='50.017006mm'
+      width='10.017033mm'
+      height='10.017006mm'
       viewBox='0 0 50.017033 50.017006'
       version='1.1'
       id='svg5'
