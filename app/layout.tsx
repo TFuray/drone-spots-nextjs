@@ -4,7 +4,7 @@ import { FetchConfig } from 'http-react'
 import Link from 'next/link'
 import './globals.css'
 import 'react-toastify/dist/ReactToastify.css'
-import { ToastContainer } from '@rewind-ui/core'
+import { ToastContainer } from 'react-toastify'
 
 function MainLayout({ children }) {
   return (

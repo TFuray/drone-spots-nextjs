@@ -2,6 +2,7 @@
 import { Button } from '@rewind-ui/core'
 import axios from 'axios'
 import { ChangeEvent, useState } from 'react'
+import { toast } from 'react-toastify'
 import { useCoordinatesStore, useWeatherStore } from 'store/store'
 import { Coordinates, WeatherData } from 'types/weather'
 
@@ -16,7 +17,7 @@ const SearchBar = () => {
     setLocation(e.target.value)
   }
 
-  const getWeatherData = async (input) => {
+  const getWeatherData = async (input: string) => {
     try {
       const response = await axios.get<WeatherData>(
         `https://api.weatherapi.com/v1/current.json?key=2b97f312100a4bd099b180935230707 &q=${input}`
@@ -32,7 +33,11 @@ const SearchBar = () => {
   }
 
   const handleClick = () => {
-    getWeatherData(location)
+    if (location === '') {
+      toast('Please enter location')
+    } else {
+      getWeatherData(location)
+    }
   }
 
   const handleFindMyLocation = () => {
@@ -44,7 +49,7 @@ const SearchBar = () => {
     function success(position: GeolocationPosition) {
       const userLat: number = position.coords.latitude
       const userLong: number = position.coords.longitude
-      console.log(userLat,userLong)
+      console.log(userLat, userLong)
       setCoordinates({
         latitude: userLat,
         longitude: userLong
@@ -53,10 +58,10 @@ const SearchBar = () => {
 
       getWeatherData(`${userLat},${userLong}`)
     }
-      function error(error: GeolocationPositionError) {
-        console.log(`Unable to retrieve your location ${error}`)
-      }
+    function error(error: GeolocationPositionError) {
+      console.log(`Unable to retrieve your location ${error}`)
     }
+  }
 
   return (
     <div className='grid grid-cols-3 gap-2 search-bar '>
@@ -69,11 +74,18 @@ const SearchBar = () => {
       />
       <div className='flex gap-1'>
         {/* <Button color='black' size='sm'>Search</Button> */}
-        <button className='btn grid btn-outline border-secondary border-2' onClick={handleClick}>
+        <button
+          className='btn grid btn-outline border-secondary border-2'
+          onClick={handleClick}
+        >
           Search
         </button>
-        <button className='btn grid btn-outline border-secondary border-2' onClick={handleFindMyLocation}>
-         Find My <br/>Location
+        <button
+          className='btn grid btn-outline border-secondary border-2'
+          onClick={handleFindMyLocation}
+        >
+          Find My <br />
+          Location
         </button>
       </div>
     </div>
