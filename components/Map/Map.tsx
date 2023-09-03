@@ -17,7 +17,6 @@ const Map = () => {
   const latitude = useCoordinatesStore(state => state.latitude)
   const longitude = useCoordinatesStore(state => state.longitude)
 
-
   const RecenterAutomatically = ({ lat, lng }) => {
     const map = useMap()
     useEffect(() => {
