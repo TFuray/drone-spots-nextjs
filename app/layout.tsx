@@ -3,6 +3,8 @@ import NavBar from 'components/NavBar'
 import { FetchConfig } from 'http-react'
 import Link from 'next/link'
 import './globals.css'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
 
 function MainLayout({ children }) {
   return (
@@ -25,6 +27,7 @@ function MainLayout({ children }) {
           >
             <Icon name='github' /> <span>Github</span>
           </Link>
+          <ToastContainer />
         </body>
       </html>
     </FetchConfig>
