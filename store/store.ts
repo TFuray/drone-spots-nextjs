@@ -24,8 +24,8 @@ export const useWeatherStore = create<WeatherStore>(set => ({
 }))
 
 export const useCoordinatesStore = create<CoordinatesStore>(set => ({
-  latitude: 68.5,
-  longitude: -120.7,
+  latitude: 38.5816,
+  longitude: -121.4944,
   setCoordinates: data =>
     set({ latitude: data.latitude, longitude: data.longitude })
 }))
