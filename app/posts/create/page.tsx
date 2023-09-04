@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { use, useMemo, useState } from 'react'
+import { use, useMemo, useRef, useState } from 'react'
 import { useObject } from 'react-kuh'
 
 import axios from 'axios'
@@ -30,6 +30,7 @@ export default function Create() {
     imgUrl: '',
     content: ''
   })
+  const my_modal_1 = useRef<HTMLDialogElement>(null)
 
   const newPostDate = useMemo(() => Date.now(), [post])
 
@@ -49,20 +50,20 @@ export default function Create() {
       const data = response.data
       console.log(data)
 
-      setPost({...post,
+      setPost({
+        ...post,
         location: {
           city: data.name,
           state: data.address.state
+        },
+        coordinates: {
+          latitude: lat,
+          longitude: lng
         }
       })
-      //  setPost.write({
-        //    location: { ...post.location, city: data.name }
-        //    location: {...post.location, state: data.}
-        //  })
-      } catch (error) {
-        console.log(error)
-      }
-      savePost()
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   function savePost() {
@@ -72,7 +73,7 @@ export default function Create() {
   // This is not automatic, this is a mutation
   useFetch('/posts', {
     method: 'POST',
-    body: { ...post, _id: undefined },
+    body: { ...newPost, _id: undefined },
     onResolve() {
       router.back()
     }
@@ -98,30 +99,6 @@ export default function Create() {
               placeholder='Title'
             />
           </div>
-          {/* <div className='w-5/12'>
-            <Input
-              value={post.location.city}
-              name='location.city'
-              onChange={e =>
-                setPost.write({
-                  location: { ...post.location, city: e.target.value }
-                })
-              }
-              placeholder='City'
-            />
-          </div>
-          <div className='w-5/12'>
-            <Input
-              value={post.location.state}
-              name='location.state'
-              onChange={e =>
-                setPost.write({
-                  location: { ...post.location, state: e.target.value }
-                })
-              }
-              placeholder='State'
-            />
-          </div> */}
           <div className='w-5/12'>
             <Input
               value={lat}
@@ -130,23 +107,17 @@ export default function Create() {
                 setPost({
                   ...post,
                   coordinates: {
-                    latitude: e.target.value,
-                    longitude: lng
+                    ...post.coordinates,
+                    latitude: {
+                      ...post.coordinates,
+                      latitude: setDraggingCoordinates({
+                        lat: Number(e.target.value),
+                        lng
+                      })
+                    }
                   }
                 })
               }
-              // setPost.write({
-              //   coordinates: {
-              //     ...post.coordinates,
-              //     latitude: {
-              //       ...post.coordinates,
-              //       latitude: setDraggingCoordinates({
-              //         lat: Number(e.target.value),
-              //         lng
-              //       })
-              //     }
-              //   }
-              // })
               placeholder='Latitude'
             />
           </div>
@@ -154,26 +125,18 @@ export default function Create() {
             <Input
               value={lng}
               name='location.coordinates.longitude'
-              // onChange={e =>
-              //   setPost.write({
-              //     coordinates: {
-              //       ...post.coordinates,
-              //       longitude: {
-              //         ...post.coordinates,
-              //         longitude: setDraggingCoordinates({
-              //           lat,
-              //           lng: Number(e.target.value)
-              //         })
-              //       }
-              //     }
-              //   })
-              // }
               onChange={e =>
                 setPost({
                   ...post,
                   coordinates: {
-                    latitude: lat,
-                    longitude: e.target.value
+                    ...post.coordinates,
+                    longitude: {
+                      ...post.coordinates,
+                      longitude: setDraggingCoordinates({
+                        lat,
+                        lng: Number(e.target.value)
+                      })
+                    }
                   }
                 })
               }
@@ -197,19 +160,35 @@ export default function Create() {
               placeholder='Description'
               className='textarea textarea-bordered h-32 resize-none w-full'
               name='content'
-              // onChange={e =>
-              //   setPost.write({
-              //     content: e.target.value
-              //   })
-              // }
               onChange={e => setPost({ ...post, content: e.target.value })}
             ></textarea>
           </div>
           <div className='w-full text-center'>
-            <button onClick={()=>coordsToCity(post.coordinates.latitude, post.coordinates.longitude)} className='btn gap-x-2'>
+            <button
+              onClick={() => (
+                coordsToCity(lat, lng), my_modal_1.current?.showModal()
+              )}
+              className='btn gap-x-2'
+            >
               <span>Save</span>
+
               <Icon name='disc' className='text-xl' />
             </button>
+            <dialog ref={my_modal_1} className='modal'>
+              <div className='modal-box text-xl'>
+                Confirm
+                <p className='py-4'>Click Save to confirm</p>
+                <div className='modal-action flex justify-center'>
+                  <form method='dialog flex'>
+                    {/* if there is a button in form, it will close the modal */}
+                    <button className='btn mr-3' onClick={savePost}>
+                      Save
+                    </button>
+                    <button className='btn'>Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
           </div>
         </div>
       </div>
