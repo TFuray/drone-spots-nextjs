@@ -1,8 +1,9 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { useMemo } from 'react'
+import { use, useMemo, useState } from 'react'
 import { useObject } from 'react-kuh'
 
+import axios from 'axios'
 import Icon from 'bs-icon'
 import useFetch, { revalidate } from 'http-react'
 import dynamic from 'next/dynamic'
@@ -11,22 +12,12 @@ import Link from 'next/link'
 import Header from 'components/Header'
 import Input from 'components/Input'
 import { useDraggingCoordinatesStore } from 'store/store'
-
-function savePost() {
-  revalidate('POST /posts')
-}
+import { ReverseGeo } from 'types/reverseGeo'
 
 export default function Create() {
   const router = useRouter()
-
   const { lat, lng } = useDraggingCoordinatesStore(state => state)
-  const setDraggingCoordinates = useDraggingCoordinatesStore(
-    state => state.setDraggingCoordinates
-  )
-
-  console.log(lat)
-
-  const [post, setPost] = useObject({
+  const [post, setPost] = useState({
     title: '',
     location: {
       city: '',
@@ -46,11 +37,42 @@ export default function Create() {
     ...post,
     date: newPostDate
   }
+  const setDraggingCoordinates = useDraggingCoordinatesStore(
+    state => state.setDraggingCoordinates
+  )
+
+  const coordsToCity = async (latt: number, lonn: number) => {
+    try {
+      const response = await axios.get<ReverseGeo>(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latt}&lon=${lonn}&zoom=10`
+      )
+      const data = response.data
+      console.log(data)
+
+      setPost({...post,
+        location: {
+          city: data.name,
+          state: data.address.state
+        }
+      })
+      //  setPost.write({
+        //    location: { ...post.location, city: data.name }
+        //    location: {...post.location, state: data.}
+        //  })
+      } catch (error) {
+        console.log(error)
+      }
+      savePost()
+  }
+
+  function savePost() {
+    revalidate('POST /posts')
+  }
 
   // This is not automatic, this is a mutation
   useFetch('/posts', {
     method: 'POST',
-    body: { ...newPost, _id: undefined },
+    body: { ...post, _id: undefined },
     onResolve() {
       router.back()
     }
@@ -72,15 +94,11 @@ export default function Create() {
             <Input
               value={post.title}
               name='title'
-              onChange={e =>
-                setPost.write({
-                  title: e.target.value
-                })
-              }
+              onChange={e => setPost({ ...post, title: e.target.value })}
               placeholder='Title'
             />
           </div>
-          <div className='w-5/12'>
+          {/* <div className='w-5/12'>
             <Input
               value={post.location.city}
               name='location.city'
@@ -103,25 +121,32 @@ export default function Create() {
               }
               placeholder='State'
             />
-          </div>
+          </div> */}
           <div className='w-5/12'>
             <Input
               value={lat}
               name='location.coordinates.latitude'
               onChange={e =>
-                setPost.write({
+                setPost({
+                  ...post,
                   coordinates: {
-                    ...post.coordinates,
-                    latitude: {
-                      ...post.coordinates,
-                      latitude: setDraggingCoordinates({
-                        lat: Number(e.target.value),
-                        lng
-                      })
-                    }
+                    latitude: e.target.value,
+                    longitude: lng
                   }
                 })
               }
+              // setPost.write({
+              //   coordinates: {
+              //     ...post.coordinates,
+              //     latitude: {
+              //       ...post.coordinates,
+              //       latitude: setDraggingCoordinates({
+              //         lat: Number(e.target.value),
+              //         lng
+              //       })
+              //     }
+              //   }
+              // })
               placeholder='Latitude'
             />
           </div>
@@ -129,24 +154,33 @@ export default function Create() {
             <Input
               value={lng}
               name='location.coordinates.longitude'
+              // onChange={e =>
+              //   setPost.write({
+              //     coordinates: {
+              //       ...post.coordinates,
+              //       longitude: {
+              //         ...post.coordinates,
+              //         longitude: setDraggingCoordinates({
+              //           lat,
+              //           lng: Number(e.target.value)
+              //         })
+              //       }
+              //     }
+              //   })
+              // }
               onChange={e =>
-                setPost.write({
+                setPost({
+                  ...post,
                   coordinates: {
-                    ...post.coordinates,
-                    longitude: {
-                      ...post.coordinates,
-                      longitude: setDraggingCoordinates({
-                        lat,
-                        lng: Number(e.target.value)
-                      })
-                    }
+                    latitude: lat,
+                    longitude: e.target.value
                   }
                 })
               }
               placeholder='Longitude'
             />
           </div>
-          <div className='w-full'>
+          {/* <div className='w-full'>
             <Input
               value={post.imgUrl}
               name='imgUrl'
@@ -157,21 +191,22 @@ export default function Create() {
               }
               placeholder='Image URL'
             />
-          </div>
+          </div> */}
           <div className='w-full'>
             <textarea
               placeholder='Description'
               className='textarea textarea-bordered h-32 resize-none w-full'
               name='content'
-              onChange={e =>
-                setPost.write({
-                  content: e.target.value
-                })
-              }
+              // onChange={e =>
+              //   setPost.write({
+              //     content: e.target.value
+              //   })
+              // }
+              onChange={e => setPost({ ...post, content: e.target.value })}
             ></textarea>
           </div>
           <div className='w-full text-center'>
-            <button onClick={savePost} className='btn gap-x-2'>
+            <button onClick={()=>coordsToCity(post.coordinates.latitude, post.coordinates.longitude)} className='btn gap-x-2'>
               <span>Save</span>
               <Icon name='disc' className='text-xl' />
             </button>

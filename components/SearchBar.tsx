@@ -5,6 +5,8 @@ import { ChangeEvent, useState } from 'react'
 import { toast } from 'react-toastify'
 import { useCoordinatesStore, useWeatherStore } from 'store/store'
 import { Coordinates, WeatherData } from 'types/weather'
+import { Location } from '../types/lanLng';
+import { ReverseGeo } from 'types/reverseGeo'
 
 const SearchBar = () => {
   const [location, setLocation] = useState('')
@@ -40,6 +42,17 @@ const SearchBar = () => {
     }
   }
 
+  const coordsToCity = async (lat: number, lon: number ) => {
+    try {
+      const response = await axios.get<ReverseGeo>(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`
+      )
+    setLocation(response.data.name)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const handleFindMyLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(success, error)
@@ -57,6 +70,7 @@ const SearchBar = () => {
       setLocation(`${userLat}, ${userLong}`)
 
       getWeatherData(`${userLat},${userLong}`)
+      coordsToCity(userLat, userLong)
     }
     function error(error: GeolocationPositionError) {
       console.log(`Unable to retrieve your location ${error}`)

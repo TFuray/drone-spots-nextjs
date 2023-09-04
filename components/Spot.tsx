@@ -125,7 +125,7 @@ export default function Spot() {
                 <th>Name</th>
                 <th>Location</th>
                 <th>Description</th>
-                <th>Pin</th>
+                <th>lat, long</th>
                 <th></th>
               </tr>
             </thead>
@@ -141,7 +141,8 @@ export default function Spot() {
                   </td>
                   <td>{post.content}</td>
                   <td>
-                    <a href=''>Show on Map</a>
+                    {post.coordinates.latitude.toString()}, <br/>
+                    {post.coordinates.longitude.toString()}
                   </td>
                   <td>
                     <button
