@@ -35,7 +35,7 @@ const MapDragMarker: React.FC = () => {
   return (
     <MapContainer
       center={[lat, lng]}
-      zoom={14
+      zoom={8
       }
       scrollWheelZoom={true}
       style={{ height: '100%', width: '100%', borderRadius: '2rem' }}

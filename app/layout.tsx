@@ -3,7 +3,7 @@ import NavBar from 'components/NavBar'
 import { FetchConfig } from 'http-react'
 import Link from 'next/link'
 import './globals.css'
-import 'react-toastify/dist/ReactToastify.css'
+// import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify'
 
 function MainLayout({ children }) {

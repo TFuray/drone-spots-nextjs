@@ -13,6 +13,6 @@ const options: any = {
 export const connectToDatabase = async () => {
   if (!connection.readyState) {
     console.log('Connecting to ', MONGO_URI)
-    connect(MONGO_URI, options)
+    connect(MONGO_URI, options).catch(error => console.log(error))
   }
 }

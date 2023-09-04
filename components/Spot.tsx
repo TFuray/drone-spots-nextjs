@@ -116,41 +116,39 @@ export default function Spot() {
       <ul
       // className='py-4 grid grid-cols-1 rounded-md'
       >
-        <div className='overflow-x-auto'>
-          <table className='table'>
+        <div className='overflow-auto'>
+          <table className='table drop-shadow-2xl shadow-2xl bg-base-200'>
             {/* head */}
-            <thead>
+            <thead className='bg-base-300 text-center'>
               <tr>
                 <th></th>
                 <th>Name</th>
-                <th>Location</th>
+                <th>City</th>
+                <th>State</th>
                 <th>Description</th>
-                <th>Pin</th>
-                <th></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className='text-center'>
               {/* row 1 */}
               {data.map((post, index) => (
                 <tr key={index}>
                   <th>{index + 1}</th>
                   <td>{post.title}</td>
                   <td>
-                    {post.location.city.toUpperCase()},{' '}
-                    {post.location.state.toUpperCase()}
+                    {post.location.city}
+                  </td>
+                  <td>
+                    {post.location.state}
                   </td>
                   <td>{post.content}</td>
-                  <td>
-                    <a href=''>Show on Map</a>
-                  </td>
-                  <td>
+                  {/* <td>
                     <button
                       className='btn btn-ghost text-primary-content font-semibold cursor-pointer'
                       onClick={() => confirmPostDelete(post._id)}
                     >
                       <Icon name='trash' className='text-xl text-red-700' />
                     </button>
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>

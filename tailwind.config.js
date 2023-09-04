@@ -119,32 +119,32 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: '#305a96',
+          primary: '#1b8d47',
 
-          secondary: '#2E8D90',
+          secondary: '#9b7108',
 
-          accent: '#D2362F',
+          accent: '#f716e0',
 
-          // neutral: '#B7C3D3',
+          neutral: '#202837',
 
-          'base-100': '#374151',
+          'base-100': '#4d4d4d',
 
-          info: '#EF7740',
+          info: '#0891b2',
 
-          success: '#167958',
+          success: '#1b8d47',
 
-          warning: '#cda40e',
+          warning: '#9b7108',
 
-          error: '#e86c68'
+          error: '#eb4275'
         }
       }
-    ]
-  // darkTheme: '', // name of one of the included themes for dark mode
-  // base: true, // applies background color and foreground color for root element by default
-  // styled: true, // include daisyUI colors and design decisions for all components
-  // utils: true, // adds responsive and modifier utility classes
-  // rtl: false, // rotate style direction from left-to-right to right-to-left. You also need to add dir="rtl" to your html tag and install `tailwindcss-flip` plugin for Tailwind CSS.
-  // prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
-  // logs: true // Shows info about daisyUI version and used config in the console when building your CSS
+    ],
+    // darkTheme: '', // name of one of the included themes for dark mode
+    // base: true, // applies background color and foreground color for root element by default
+    // styled: true, // include daisyUI colors and design decisions for all components
+    // utils: true, // adds responsive and modifier utility classes
+    // rtl: false, // rotate style direction from left-to-right to right-to-left. You also need to add dir="rtl" to your html tag and install `tailwindcss-flip` plugin for Tailwind CSS.
+    // prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+    // logs: true // Shows info about daisyUI version and used config in the console when building your CSS
   }
 }

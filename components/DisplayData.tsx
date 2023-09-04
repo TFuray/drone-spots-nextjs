@@ -61,79 +61,20 @@ const DisplayData = (): JSX.Element => {
         <div className='container mx-auto mt-12'>
           <div className='flex flex-col items-center justify-center max-w-xl'>
             <ul className='flex space-x-2'>
-              {/* <li>
-                <button
-                  onClick={() => setOpenTab(1)}
-                  className={` ${
-                    openTab === 1 ? 'btn btn-secondary  ' : 'btn btn-outline outline outline-2 btn-secondary'
-                  } inline-block px-4 py-2 rounded shadow`}
-                >
-                  Weather Conditions
-                </button>
-              </li> */}
               <li>
                 <button
-                  onClick={() => setOpenTab(2)}
-                  className={` ${
-                    openTab === 2 ? 'btn btn-secondary ' : 'btn btn-outline outline outline-2 btn-secondary'
-                  } inline-block font-bold px-4 py-2  rounded shadow`}
+                  className='drop-shadow-2xl text-3xl mb-3 bg-secondary px-7 py-2 rounded-md shadow-2xl '
                 >
                   Spots
                 </button>
               </li>
             </ul>
-            {/* <div className=''>
-              <div className={openTab === 1 ? 'block' : 'hidden'}>
-                {data ? (
-                  <div className='grid grid-cols-2 justify-center prose text-neutral-content prose-h2:mt-4 text-center prose-img:m-auto'>
-                    <div className='col-span-2 justify-self-center mt-2'>
-                      <h1 className='text-neutral-content'>
-                        {data.location.name}, {data.location.region}
-                      </h1>
-                      <h4 className='text-neutral-content'>Local Time:</h4>
-                      <h4 className='text-neutral-content'>{data.location.localtime}</h4>
-                    </div>
-
-                    <div className='ml-3 justify-self-center'>
-                      <h2 className='text-xl underline text-neutral-content'>Wind</h2>
-                      {displayDirection()}
-                      <h2 className='text-xl text-neutral-content'>
-                        {data.current.wind_dir} @ {data.current.wind_mph} mph
-                      </h2>
-                    </div>
-
-                    <div className='ml-3 justify-self-center'>
-                      <h2 className='text-xl underline text-neutral-content'>Weather </h2>
-                      <img
-                        className='w-48'
-                        src={data.current.condition.icon}
-                        alt=''
-                      />
-                      <h2 className='text-xl text-neutral-content'>
-                        {data.current.temp_f}^F & {data.current.condition.text}
-                      </h2>
-                    </div>
-                    <div className='col-span-2'>
-                      <h2 className='text-neutral-content'>
-                        Cloud Coverage {data.current.cloud}% & Visibility{' '}
-                        {data.current.vis_miles} miles
-                      </h2>
-                    </div>
-                  </div>
-                ) : (
-                  <h2 className='prose-2xl mt-5'>
-                    Enter Zip Code To See Weather
-                  </h2>
-                )}
-              </div> */}
-              <div className={openTab === 2 ? 'block' : 'hidden'}>
-                <div>
-                  <Spot />
-                </div>
-              </div>
+            <div>
+              <Spot />
             </div>
           </div>
         </div>
+      </div>
       {/* </div> */}
     </>
   )

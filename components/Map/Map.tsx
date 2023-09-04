@@ -21,7 +21,7 @@ const Map = () => {
   const RecenterAutomatically = ({ lat, lng }) => {
     const map = useMap()
     useEffect(() => {
-      map.setView([lat, lng], 11)
+      map.setView([lat, lng], 9)
     }, [lat, lng])
     return null
   }
@@ -29,8 +29,8 @@ const Map = () => {
   return (
     <MapContainer
       center={[38.5, -121.7]}
-      zoom={1}
-      scrollWheelZoom={true}
+      zoom={5}
+      scrollWheelZoom={false}
       style={{ height: '100%', width: '100%', borderRadius: '2rem' }}
     >
       <TileLayer
