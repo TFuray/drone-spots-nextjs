@@ -17,11 +17,11 @@ export default function Home() {
   })
   return (
     <>
-      <div className='flex flex-col items-center mb-5 prose prose-xl prose-p:bold max-w-none '>
+      {/* <div className='flex flex-col items-center mb-5 text-black prose prose-xl prose-p:bold max-w-none '>
         <Header>Drone Map</Header>
         <p className=''>#1 Resource to find new places to fly</p>
-      </div>
-      <div className='w-1/3 mx-auto mb-5'>
+      </div> */}
+      <div className='w-1/3 mx-auto mb-5 mt-10'>
         <SearchBar />
       </div>
       <div className='flex '>

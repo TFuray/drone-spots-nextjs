@@ -25,7 +25,8 @@ export default function Create() {
     },
     coordinates: {
       latitude: lat,
-      longitude: lng
+      longitude: lng,
+      position: [lat, lng]
     },
     imgUrl: '',
     content: ''
@@ -58,7 +59,8 @@ export default function Create() {
         },
         coordinates: {
           latitude: lat,
-          longitude: lng
+          longitude: lng,
+          position: [lat, lng]
         }
       })
     } catch (error) {

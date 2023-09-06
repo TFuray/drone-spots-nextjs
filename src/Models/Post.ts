@@ -9,8 +9,8 @@ export interface IPost extends Document {
     state: string
   }
   coordinates: {
-    latitude: Decimal128
-    longitude: Decimal128
+    latitude: number
+    longitude: number
   }
   imgUrl: string
 }
