@@ -145,18 +145,18 @@ export default function Create() {
               placeholder='Longitude'
             />
           </div>
-          {/* <div className='w-full'>
+          <div className='w-full'>
             <Input
               value={post.imgUrl}
               name='imgUrl'
               onChange={e =>
-                setPost.write({
+                setPost({...post,
                   imgUrl: e.target.value
                 })
               }
               placeholder='Image URL'
             />
-          </div> */}
+          </div>
           <div className='w-full'>
             <textarea
               placeholder='Description'
