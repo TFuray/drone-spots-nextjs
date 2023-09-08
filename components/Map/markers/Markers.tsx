@@ -16,6 +16,7 @@ const Markers = () => {
   if (error)
     return <p className='text-2xl text-red-400 py-4'>Failed to fetch posts</p>
 
+    //fetch spot data
 
   const fetchData = async (id: any) => {
     try {
