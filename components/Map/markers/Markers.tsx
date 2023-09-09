@@ -43,7 +43,7 @@ const Markers = () => {
         >
           <Popup>
             <h1 className='text-lg'>{post.title} </h1>
-            {/* Open the modal using ID.showModal() method */}
+            
             <button
               className='btn btn-sm'
               onClick={() => window.my_modal_1.showModal()}
