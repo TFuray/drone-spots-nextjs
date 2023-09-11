@@ -17,15 +17,15 @@ export default function Home() {
   })
   return (
     <>
-      <div className='flex flex-col items-center mb-5 prose prose-xl prose-p:bold max-w-none '>
+      {/* <div className='flex flex-col items-center mb-5 text-black prose prose-xl prose-p:bold max-w-none '>
         <Header>Drone Map</Header>
         <p className=''>#1 Resource to find new places to fly</p>
-      </div>
-      <div className='w-1/3 mx-auto mb-5'>
+      </div> */}
+      <div className='w-1/3 mx-auto mb-5 mt-10'>
         <SearchBar />
       </div>
       <div className='flex '>
-        <div className='w-1/2 bg-neutral border-4 rounded-[2.3rem] mr-2 shadow-2xl'>
+        {/* <div className='w-1/2 bg-neutral border-4 rounded-[2.3rem] mr-2 shadow-2xl'>
           <div className='float-right'>
             <Link href='/posts/create' className=''>
               <button className='btn btn-info rounded-3xl'>
@@ -35,13 +35,27 @@ export default function Home() {
             </Link>
           </div>
           <SideBar />
-        </div>
+        </div> */}
         <div
-          className='w-1/2 border-4 rounded-[2.3rem] shadow-2xl ml-2'
+          className='w-full border-4 z-0 rounded-[2.3rem] shadow-2xl ml-2 static'
           id='map'
           style={{ height: '660px' }}
         >
           <MapWithNoSSR />
+        </div>
+        <div
+          className='absolute right-0 w-1/3 z-40 drop-shadow-2xl opacity-100 bg-base-200 border-4 rounded-[2.3rem] mr-2 shadow-2xl'
+          style={{ height: '660px' }}
+        >
+          <div className='float-right'>
+            <Link href='/posts/create' className=''>
+              <button className='btn bg-green-700 rounded-3xl'>
+                Add
+                <br /> Spot
+              </button>
+            </Link>
+          </div>
+          <SideBar />
         </div>
       </div>
     </>

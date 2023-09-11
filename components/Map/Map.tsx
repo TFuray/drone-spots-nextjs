@@ -12,10 +12,12 @@ import {
   useMapEvent
 } from 'react-leaflet'
 import { useCoordinatesStore } from 'store/store'
+import Markers from './markers/Markers'
 
 const Map = () => {
   const latitude = useCoordinatesStore(state => state.latitude)
   const longitude = useCoordinatesStore(state => state.longitude)
+  const position = [28, -120]
 
 
   const RecenterAutomatically = ({ lat, lng }) => {
@@ -37,6 +39,19 @@ const Map = () => {
         url={`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoib3R0ZXI3MDciLCJhIjoiY2xqeHh0M2hqMDRnazNrcWU5MzVqMml6YSJ9.T3txdvzcprGNOEKojg68kA`}
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
+
+<Markers></Markers>
+
+      {/* <Marker position={[38, -122]}>
+        <Popup>
+
+        </Popup>
+      </Marker>
+      <Marker position={[39, -122]}>
+        <Popup>
+
+        </Popup>
+      </Marker> */}
       <RecenterAutomatically lat={latitude} lng={longitude} />
     </MapContainer>
   )

@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify'
 function MainLayout({ children }) {
   return (
     <FetchConfig baseUrl='/api'>
-      <html data-theme='coffee'>
+      <html data-theme='bumblebee'>
         <head>
           <title>Drone Map</title>
           <meta name='description' content='Next.js' />

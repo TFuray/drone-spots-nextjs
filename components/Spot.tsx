@@ -114,10 +114,9 @@ export default function Spot() {
   return (
     <div>
       <ul
-      // className='py-4 grid grid-cols-1 rounded-md'
       >
-        <div className='overflow-auto'>
-          <table className='table drop-shadow-2xl shadow-2xl bg-base-200'>
+        <div className='overflow-x-auto'>
+          <table className='table table-sm bg-base-200 '  >
             {/* head */}
             <thead className='bg-base-300 text-center'>
               <tr>
@@ -128,10 +127,10 @@ export default function Spot() {
                 <th>Description</th>
               </tr>
             </thead>
-            <tbody className='text-center'>
+            <tbody className='text-center text-sm'>
               {/* row 1 */}
               {data.map((post, index) => (
-                <tr key={index}>
+                <tr className='hover' key={index}>
                   <th>{index + 1}</th>
                   <td>{post.title}</td>
                   <td>

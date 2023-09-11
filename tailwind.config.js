@@ -117,6 +117,35 @@ module.exports = {
   ],
   daisyui: {
     themes: [
+      'light',
+      'dark',
+      'cupcake',
+      'bumblebee',
+      'emerald',
+      'corporate',
+      'synthwave',
+      'retro',
+      'cyberpunk',
+      'valentine',
+      'halloween',
+      'garden',
+      'forest',
+      'aqua',
+      'lofi',
+      'pastel',
+      'fantasy',
+      'wireframe',
+      'black',
+      'luxury',
+      'dracula',
+      'cmyk',
+      'autumn',
+      'business',
+      'acid',
+      'lemonade',
+      'night',
+      'coffee',
+      'winter',
       {
         mytheme: {
           primary: '#1b8d47',
@@ -138,7 +167,7 @@ module.exports = {
           error: '#eb4275'
         }
       }
-    ],
+    ]
     // darkTheme: '', // name of one of the included themes for dark mode
     // base: true, // applies background color and foreground color for root element by default
     // styled: true, // include daisyUI colors and design decisions for all components
