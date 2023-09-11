@@ -114,7 +114,6 @@ export default function Spot() {
   return (
     <div>
       <ul
-      // className='py-4 grid grid-cols-1 rounded-md'
       >
         <div className='overflow-x-auto'>
           <table className='table table-sm bg-base-200 '  >
