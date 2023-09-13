@@ -18,7 +18,7 @@ export default function Home() {
     ssr: false
   })
   return (
-    <ThemeProvider>
+    <ThemeProvider >
       {/* <div className='flex flex-col items-center mb-5 text-black prose prose-xl prose-p:bold max-w-none '>
         <Header>Drone Map</Header>
         <p className=''>#1 Resource to find new places to fly</p>
@@ -46,7 +46,7 @@ export default function Home() {
           <MapWithNoSSR />
         </div>
         <div
-          className='absolute right-0 w-1/3 z-40 drop-shadow-2xl opacity-100 bg-base-300 border-4 rounded-[2.3rem] mr-2 shadow-2xl'
+          className='absolute left-2/3 w-1/4 z-40 drop-shadow-2xl bg-transparent border-4 rounded-[2.3rem] mr-2 shadow-2xl'
           style={{ height: mapHeight }}
         >
           <div className='float-right'>

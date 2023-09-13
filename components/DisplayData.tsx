@@ -9,12 +9,10 @@ import {
   SouthWest,
   West
 } from 'public/arrows/Arrows'
-import { useState } from 'react'
 import { useWeatherStore } from '../store/store'
 import Spot from './Spot'
 
 const DisplayData = (): JSX.Element => {
-  const [openTab, setOpenTab] = useState(2)
 
   const data = useWeatherStore(state => state.weatherData)
   console.log(data)

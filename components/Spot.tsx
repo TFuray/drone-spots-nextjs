@@ -67,25 +67,25 @@ export default function Spot() {
   if (error)
     return <p className='text-2xl text-red-400 py-4'>Failed to fetch posts</p>
 
-  const fetchData = async (id: any) => {
-    try {
-      const response = await fetch(`/api/delete?id=${id}`, {
-        method: 'DELETE'
-      })
-      if (response.ok) {
-        const data = await response.json()
-        console.log(data)
-      } else {
-        console.error('Failed to remove post')
-      }
-    } catch (error) {
-      console.error('Error:', error)
-    }
-  }
-  function confirmPostDelete(id: any) {
+  // const fetchData = async (id: any) => {
+  //   try {
+  //     const response = await fetch(`/api/delete?id=${id}`, {
+  //       method: 'DELETE'
+  //     })
+  //     if (response.ok) {
+  //       const data = await response.json()
+  //       // console.log(data)
+  //     } else {
+  //       console.error('Failed to remove post')
+  //     }
+  //   } catch (error) {
+  //     console.error('Error:', error)
+  //   }
+  // }
+  // function confirmPostDelete(id: any) {
     // const confirmation = confirm('Do you want to remove this post?')
     // if (confirmation) {
-    fetchData(id)
+    // fetchData(id)
     // useFetch('/posts', {
     //   id: fetchID,
     //   method: 'DELETE',
@@ -97,7 +97,7 @@ export default function Spot() {
     //   }
     // })
     // }
-  }
+  // }
 
   // useFetch('/posts', {
   //   id: fetchID,
