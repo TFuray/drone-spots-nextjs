@@ -8,7 +8,8 @@
 font-family: 'Lato', sans-serif;
 }
 
-body {
+html {
   background-image: url('/bg-image.jpg');
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
