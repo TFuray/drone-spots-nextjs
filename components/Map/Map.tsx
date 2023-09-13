@@ -19,7 +19,6 @@ const Map = () => {
   const longitude = useCoordinatesStore(state => state.longitude)
   const position = [28, -120]
 
-
   const RecenterAutomatically = ({ lat, lng }) => {
     const map = useMap()
     useEffect(() => {
@@ -40,18 +39,8 @@ const Map = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
 
-    <Markers />
+      <Markers />
 
-      {/* <Marker position={[38, -122]}>
-        <Popup>
-
-        </Popup>
-      </Marker>
-      <Marker position={[39, -122]}>
-        <Popup>
-
-        </Popup>
-      </Marker> */}
       <RecenterAutomatically lat={latitude} lng={longitude} />
     </MapContainer>
   )

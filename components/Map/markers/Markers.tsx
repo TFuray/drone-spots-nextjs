@@ -2,6 +2,7 @@ import useFetch from 'http-react'
 import { useEffect, useState } from 'react'
 import { Marker, Popup } from 'react-leaflet'
 import { IPost } from 'src/Models/Post'
+import { CardModal } from 'components/CardModal'
 
 const Markers = () => {
   const { data, loadingFirst, error } = useFetch<IPost[]>('/posts', {
@@ -60,24 +61,10 @@ const Markers = () => {
             >
               See More
             </button>
-            <dialog id={`my_modal_${index}`} className='modal'>
-              <div className='modal-box card card-side card-bordered bg-base-100 shadow-xl'>
-                <figure>
-                  <img width={'200px'} src={post.imgUrl} alt='spot picture' />
-                </figure>
-                <div className='card-body'>
-                  <h3 className='card-title'>{post.title}</h3>
-                  <p className=''>{post.content}</p>
-                  <div className='modal-action card-actions'>
-                    <form method='dialog'>
-                      {/* if there is a button in form, it will close the modal */}
-                      <button className='btn'>Close</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </dialog>
           </Popup>
+          <dialog id={`my_modal_${index}`} className='modal'>
+                <CardModal post={post}/>
+          </dialog>
         </Marker>
       ))}
     </>

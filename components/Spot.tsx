@@ -129,7 +129,7 @@ export default function Spot() {
               {/* row 1 */}
               {data.map((post, index) => (
                 <tr
-                  className='hover'
+                  className='hover hover:cursor-pointer'
                   key={index}
                   onClick={() => {
                     const modal = document.getElementById(
