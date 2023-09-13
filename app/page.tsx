@@ -10,13 +10,15 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useState } from 'react'
 import { WeatherData } from 'types/weather'
+import { ThemeProvider } from '@rewind-ui/core'
 
 export default function Home() {
+  const mapHeight = '780px'
   const MapWithNoSSR = dynamic(() => import('components/Map/Map'), {
     ssr: false
   })
   return (
-    <>
+    <ThemeProvider>
       {/* <div className='flex flex-col items-center mb-5 text-black prose prose-xl prose-p:bold max-w-none '>
         <Header>Drone Map</Header>
         <p className=''>#1 Resource to find new places to fly</p>
@@ -39,13 +41,13 @@ export default function Home() {
         <div
           className='w-full border-4 z-0 rounded-[2.3rem] shadow-2xl ml-2 static'
           id='map'
-          style={{ height: '660px' }}
+          style={{ height: mapHeight }}
         >
           <MapWithNoSSR />
         </div>
         <div
-          className='absolute right-0 w-1/3 z-40 drop-shadow-2xl opacity-100 bg-base-200 border-4 rounded-[2.3rem] mr-2 shadow-2xl'
-          style={{ height: '660px' }}
+          className='absolute right-0 w-1/3 z-40 drop-shadow-2xl opacity-100 bg-base-300 border-4 rounded-[2.3rem] mr-2 shadow-2xl'
+          style={{ height: mapHeight }}
         >
           <div className='float-right'>
             <Link href='/posts/create' className=''>
@@ -58,7 +60,7 @@ export default function Home() {
           <SideBar />
         </div>
       </div>
-    </>
+    </ThemeProvider>
   )
 }
 

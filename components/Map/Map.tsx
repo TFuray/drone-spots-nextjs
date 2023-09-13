@@ -40,7 +40,7 @@ const Map = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
 
-<Markers></Markers>
+    <Markers />
 
       {/* <Marker position={[38, -122]}>
         <Popup>

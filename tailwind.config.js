@@ -1,7 +1,9 @@
 const colors = require('tailwindcss/colors')
+const withMT = require('@material-tailwind/react/utils/withMT')
+
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+module.exports = withMT({
   content: [
     // './node_modules/flowbite-react/**/*.js',
     './node_modules/@rewind-ui/core/src/theme/styles/*.ts',
@@ -176,4 +178,4 @@ module.exports = {
     // prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     // logs: true // Shows info about daisyUI version and used config in the console when building your CSS
   }
-}
+})
