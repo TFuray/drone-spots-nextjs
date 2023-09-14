@@ -18,7 +18,7 @@ export function SpotCard({ post, key }: { post: IPost; key: number }) {
         shadow={false}
         className='mx-auto flex items-center '
       >
-        <Avatar size='lg' variant='circular' alt='tania andrew' />
+        {/* <Avatar size='lg' variant='circular' alt='tania andrew' /> */}
         <div className='flex w-full flex-col gap-0.5'>
           <div className='flex items-center justify-between'>
             <Typography variant='h5' color='blue-gray'>

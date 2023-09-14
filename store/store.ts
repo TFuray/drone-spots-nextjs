@@ -1,6 +1,7 @@
 import { mountStoreDevtool } from 'simple-zustand-devtools'
 import { Coordinates, DraggingCoordinates, WeatherData } from 'types/weather'
 import { create } from 'zustand'
+import { persist, createJSONStorage } from 'zustand/middleware'
 
 interface WeatherStore {
   weatherData: WeatherData | null

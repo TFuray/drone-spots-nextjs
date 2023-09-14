@@ -116,7 +116,19 @@ export default function Spot() {
       <ul>
         <div className='mb-2'>
           {data.map((post, index) => (
-           <SpotCard key={index} post={post} />
+            <div
+              className='hover:cursor-pointer'
+              onClick={() => {
+                const modal = document.getElementById(
+                  `my_modal_${index}`
+                ) as HTMLDialogElement | null
+                if (modal) {
+                  modal.showModal()
+                }
+              }}
+            >
+              <SpotCard key={index} post={post} />
+            </div>
           ))}
         </div>
       </ul>
