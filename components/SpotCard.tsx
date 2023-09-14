@@ -1,27 +1,40 @@
 import {
+  Avatar,
+  Button,
   Card,
   CardBody,
   CardFooter,
-  Typography,
-  Button
+  CardHeader,
+  Typography
 } from '@material-tailwind/react'
+import { IPost } from 'src/Models'
 
-export function SimpleCard() {
+export function SpotCard({ post, key }: { post: IPost; key: number }) {
   return (
-    <Card className='mt-6 w-96'>
-      <CardBody>
-        <Typography variant='h5' color='blue-gray' className='mb-2'>
-          UI/UX Review Check
-        </Typography>
+    <Card color='white' shadow={true} className='w-full max-w-[26rem] mb-2'>
+      <CardHeader
+        color='transparent'
+        floated={false}
+        shadow={false}
+        className='mx-auto flex items-center '
+      >
+        <Avatar size='lg' variant='circular' alt='tania andrew' />
+        <div className='flex w-full flex-col gap-0.5'>
+          <div className='flex items-center justify-between'>
+            <Typography variant='h5' color='blue-gray'>
+              {post.title}
+            </Typography>
+          </div>
+          <Typography color='blue-gray'>
+            {post.location.city}, {post.location.state}
+          </Typography>
+        </div>
+      </CardHeader>
+      <CardBody className=' p-0'>
         <Typography>
-          The place is close to Barceloneta Beach and bus stop just 2 min by
-          walk and near to &quot;Naviglio&quot; where you can enjoy the main
-          night life in Barcelona.
+          <p className='line-clamp-2'>{post.content}</p>
         </Typography>
       </CardBody>
-      <CardFooter className='pt-0'>
-        <Button>Read More</Button>
-      </CardFooter>
     </Card>
   )
 }

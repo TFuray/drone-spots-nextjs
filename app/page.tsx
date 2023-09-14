@@ -46,7 +46,7 @@ export default function Home() {
           <MapWithNoSSR />
         </div>
         <div
-          className='absolute left-2/3 w-1/4 z-40 drop-shadow-2xl bg-transparent border-4 rounded-[2.3rem] mr-2 shadow-2xl'
+          className='absolute left-2/3 w-1/4 z-40 drop-shadow-2xl bg-transparent  mr-2 '
           style={{ height: mapHeight }}
         >
           <div className='float-right'>
