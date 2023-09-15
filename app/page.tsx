@@ -13,7 +13,7 @@ import { WeatherData } from 'types/weather'
 import { ThemeProvider } from '@rewind-ui/core'
 
 export default function Home() {
-  const mapHeight = '780px'
+  const mapHeight = '680px'
   const MapWithNoSSR = dynamic(() => import('components/Map/Map'), {
     ssr: false
   })

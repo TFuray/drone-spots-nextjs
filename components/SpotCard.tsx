@@ -11,7 +11,11 @@ import { IPost } from 'src/Models'
 
 export function SpotCard({ post, key }: { post: IPost; key: number }) {
   return (
-    <Card color='white' shadow={true} className='w-full max-w-[26rem] mb-2'>
+    <Card
+      color='white'
+      shadow={true}
+      className='w-full min-w-[20rem] max-w-[20rem] mb-2 hover:bg-[#d8d8d8]'
+    >
       <CardHeader
         color='transparent'
         floated={false}
@@ -31,9 +35,6 @@ export function SpotCard({ post, key }: { post: IPost; key: number }) {
         </div>
       </CardHeader>
       <CardBody className=' p-0'>
-        <Typography>
-          <p className='line-clamp-2'>{post.content}</p>
-        </Typography>
       </CardBody>
     </Card>
   )

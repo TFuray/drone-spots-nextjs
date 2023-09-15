@@ -117,7 +117,7 @@ export default function Spot() {
         <div className='mb-2'>
           {data.map((post, index) => (
             <div
-              className='hover:cursor-pointer'
+              className='hover:cursor-pointer '
               onClick={() => {
                 const modal = document.getElementById(
                   `my_modal_${index}`
