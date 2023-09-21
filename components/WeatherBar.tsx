@@ -15,7 +15,7 @@ import { useWeatherStore } from '../store/store'
 
 const WeatherBar = (): JSX.Element => {
   const data = useWeatherStore(state => state.weatherData)
-
+  console.log(data)
   const displayDirection = () => {
     if (!data) return <div className='text-sm text-center'>loading...</div>
     if (data.current.wind_dir === 'N') {

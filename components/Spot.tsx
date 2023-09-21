@@ -8,6 +8,7 @@ import { SpotCard } from './SpotCard'
 
 import Header from 'components/Header'
 import { IPost } from 'src/Models/Post'
+import { useWeatherStore } from 'store/store'
 
 // function confirmPostDelete(id: any) {
 //   const confirmation = confirm('Do you want to remove this post?')
@@ -68,54 +69,42 @@ export default function Spot() {
   if (error)
     return <p className='text-2xl text-red-400 py-4'>Failed to fetch posts</p>
 
-  // const fetchData = async (id: any) => {
-  //   try {
-  //     const response = await fetch(`/api/delete?id=${id}`, {
-  //       method: 'DELETE'
-  //     })
-  //     if (response.ok) {
-  //       const data = await response.json()
-  //       // console.log(data)
-  //     } else {
-  //       console.error('Failed to remove post')
-  //     }
-  //   } catch (error) {
-  //     console.error('Error:', error)
-  //   }
-  // }
-  // function confirmPostDelete(id: any) {
-  // const confirmation = confirm('Do you want to remove this post?')
-  // if (confirmation) {
-  // fetchData(id)
-  // useFetch('/posts', {
-  //   id: fetchID,
-  //   method: 'DELETE',
-  //   query: {
-  //     id: props._id
-  //   },
-  //   onResolve() {
-  //     revalidate('GET /posts')
-  //   }
-  // })
-  // }
-  // }
 
-  // useFetch('/posts', {
-  //   id: fetchID,
-  //   method: 'DELETE',
-  //   query: {
-  //     id: props._id
-  //   },
-  //   onResolve() {
-  //     revalidate('GET /posts')
-  //   }
-  // })
-
+  const weatherData = useWeatherStore(state => state.weatherData)
+  function filterByLocation() {
+    let filteredData = data.filter((post ) => {
+      if (post.location.state == weatherData?.location.region) {
+         return post
+       }
+    })
+    return filteredData
+  }
+  console.log((weatherData?.location.region))
+  let filteredData = filterByLocation()
+  console.log(filteredData)
   return (
     <div>
       <ul>
         <div className='mb-2'>
-          {data.map((post, index) => (
+          {/* {filteredData == undefined ? (<div></div>) : (
+
+          filteredData.map((post, index) => (
+            <div
+              className='hover:cursor-pointer '
+              onClick={() => {
+                const modal = document.getElementById(
+                  `my_modal_${index}`
+                ) as HTMLDialogElement | null
+                if (modal) {
+                  modal.showModal()
+                }
+              }}
+            >
+              <SpotCard key={index} post={post} />
+            </div>
+          ))
+          )} */}
+          {filteredData.map((post, index) => (
             <div
               className='hover:cursor-pointer '
               onClick={() => {

@@ -15,6 +15,18 @@ export async function GET() {
   }
 }
 
+// export async function GETLOCATION(req: Response) {
+//   const query = new URL(req.url).searchParams
+//   const region = query.get('region')
+//   try {
+//     const regionSpots = await Post.find({location})
+//   } catch {
+//     return NextResponse.json('error', {
+//       status: 500
+//     })
+//   }
+// }
+
 export async function POST(req: Request) {
   try {
     const body: IPost = await req.json()

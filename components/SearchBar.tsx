@@ -18,7 +18,6 @@ const SearchBar = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLocation(e.target.value)
   }
-
   const getWeatherData = async (input: string) => {
     try {
       const response = await axios.get<WeatherData>(

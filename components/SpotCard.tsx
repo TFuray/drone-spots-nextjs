@@ -9,8 +9,9 @@ import {
 } from '@material-tailwind/react'
 import { IPost } from 'src/Models'
 
-export function SpotCard({ post, key }: { post: IPost; key: number }) {
+export function SpotCard({ post, key }: { post: IPost | undefined; key: number }) {
   return (
+    
     <Card
       color='white'
       shadow={true}
@@ -26,11 +27,11 @@ export function SpotCard({ post, key }: { post: IPost; key: number }) {
         <div className='flex w-full flex-col gap-0.5'>
           <div className='flex items-center justify-between'>
             <Typography variant='h5' color='blue-gray'>
-              {post.title}
+              {post?.title}
             </Typography>
           </div>
           <Typography color='blue-gray'>
-            {post.location.city}, {post.location.state}
+            {post?.location.city}, {post?.location.state}
           </Typography>
         </div>
       </CardHeader>
