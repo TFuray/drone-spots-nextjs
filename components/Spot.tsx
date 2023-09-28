@@ -69,17 +69,16 @@ export default function Spot() {
   if (error)
     return <p className='text-2xl text-red-400 py-4'>Failed to fetch posts</p>
 
-
   const weatherData = useWeatherStore(state => state.weatherData)
   function filterByLocation() {
-    let filteredData = data.filter((post ) => {
+    let filteredData = data.filter(post => {
       if (post.location.state == weatherData?.location.region) {
-         return post
-       }
+        return post
+      }
     })
     return filteredData
   }
-  console.log((weatherData?.location.region))
+  console.log(weatherData?.location.region)
   let filteredData = filterByLocation()
   console.log(filteredData)
   return (
