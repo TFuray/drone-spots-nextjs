@@ -1,8 +1,8 @@
 'use client'
 import Head from 'next/head'
 import Map, { Marker } from 'react-map-gl'
-import MarkerGL from 'components/mapBox/MarkerGL'
-import ControlPanel from 'components/mapBox/ControlPanel'
+import MarkerGL from '../components/mapBox/MarkerGL'
+import ControlPanel from '../components/mapBox/ControlPanel'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
 

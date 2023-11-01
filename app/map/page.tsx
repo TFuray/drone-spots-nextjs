@@ -1,4 +1,4 @@
-import Map from 'components/MapGoogle'
+import Map from '../components/MapGoogle'
 
 const page = () => {
   return (

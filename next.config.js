@@ -6,7 +6,7 @@ module.exports = {
   experimental: {
     serverComponentsExternalPackages: ['mongoose']
   },
-  future: {
-    webpack5: true
-  }
+  // future: {
+  //   webpack5: true
+  // }
 }

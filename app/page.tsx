@@ -1,10 +1,10 @@
 'use client'
 import axios from 'axios'
-import DisplayData from 'components/DisplayData'
-import Header from 'components/Header'
-import Map from 'components/Map/Map'
-import SearchBar from 'components/SearchBar'
-import SideBar from 'components/SideBar'
+import DisplayData from './components/DisplayData'
+import Header from './components/Header'
+import Map from './components/Map/Map'
+import SearchBar from './components/SearchBar'
+import SideBar from './components/SideBar'
 import 'leaflet/dist/leaflet.css'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
@@ -12,9 +12,9 @@ import { useState } from 'react'
 import { WeatherData } from 'types/weather'
 import { ThemeProvider } from '@rewind-ui/core'
 
-export default function Home() {
+export default function Page() {
   const mapHeight = '680px'
-  const MapWithNoSSR = dynamic(() => import('components/Map/Map'), {
+  const MapWithNoSSR = dynamic(() => import('./components/Map/Map'), {
     ssr: false
   })
   return (

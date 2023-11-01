@@ -7,7 +7,7 @@ import {
   CardHeader,
   Typography
 } from '@material-tailwind/react'
-import { IPost, Post } from '../src/Models/Post'
+import { IPost, Post } from '../../src/Models/Post'
 
 export function CardModal({ post }: { post: IPost }) {
   return (
