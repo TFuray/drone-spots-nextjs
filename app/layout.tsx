@@ -1,4 +1,8 @@
+
 import Icon from 'bs-icon'
+
+import {auth} from '@clerk/nextjs'
+import { redirect } from 'next/navigation'
 import { FetchConfig } from 'http-react'
 import Link from 'next/link'
 import NavBar from './components/NavBar'
@@ -12,6 +16,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const { userId } = auth()
+
+    if (!userId) {
+      redirect('/sign-in')
+    }
   return (
     <ClerkProvider>
       <FetchConfig baseUrl='/api'>
@@ -21,10 +30,8 @@ export default function RootLayout({
             <meta name='description' content='Next.js' />
           </head>
           <body>
-            <nav>
               <NavBar />
-            </nav>
-            <div className='p-8'>{children}</div>
+            <div className=''>{children}</div>
             <Link
               as={'https://github.com/tfuray'}
               href='https://github.com/tfuray'
@@ -40,4 +47,3 @@ export default function RootLayout({
     </ClerkProvider>
   )
 }
-

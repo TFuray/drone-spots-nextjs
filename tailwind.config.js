@@ -5,7 +5,6 @@ const withMT = require('@material-tailwind/react/utils/withMT')
 /** @type {import('tailwindcss').Config} */
 module.exports = withMT({
   content: [
-    // './node_modules/flowbite-react/**/*.js',
     './node_modules/@rewind-ui/core/src/theme/styles/*.ts',
     './app/**/*.{ts,tsx}',
     './public/**/*.html',
@@ -115,7 +114,7 @@ module.exports = withMT({
     require('@tailwindcss/forms')({
       strategy: 'class' // only generate classes
     }),
-    require('daisyui')
+    require('daisyui'),
   ],
   daisyui: {
     themes: [
