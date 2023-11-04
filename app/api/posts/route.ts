@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
 import { Post, IPost } from 'src/Models'
-import { connectToDatabase } from 'src/utils'
+import { mongodb } from 'src/utils'
 
-connectToDatabase()
+mongodb()
 
 export async function GET() {
   try {
