@@ -12,13 +12,14 @@ import { useState, useEffect } from 'react'
 import { WeatherData } from 'types/weather'
 import { ThemeProvider } from '@rewind-ui/core'
 import { ClassProp } from 'class-variance-authority/dist/types'
+import WeatherBar from 'components/WeatherBar'
 
 export default function Page() {
 
 
 
   const mapHeight = '680px'
-  const MapWithNoSSR = dynamic(() => import('./components/Map/Map'), {
+  const MapWithNoSSR = dynamic(() => import('components/Map/Map'), {
     ssr: false
   })
   return (
@@ -523,6 +524,7 @@ export default function Page() {
         <p className=''>#1 Resource to find new places to fly</p>
       </div> */}
       <div className='w-1/3 mx-auto mb-5 mt-10'>
+        <WeatherBar/>
         <SearchBar />
       </div>
       <div className=''>
@@ -535,7 +537,7 @@ export default function Page() {
               </button>
             </Link>
           </div> */}
-          <SideBar />
+          {/* <SideBar /> */}
         </div>
         <div
           className='min-w-full min-h-full static'
@@ -544,20 +546,12 @@ export default function Page() {
         >
           <MapWithNoSSR />
         </div>
-        <div
+        {/* <div
           className='absolute left-2/3 w-1/4 z-40 drop-shadow-2xl bg-transparent  mr-2 '
           style={{ height: mapHeight }}
         >
-          <div className='float-right'>
-            <Link href='/posts/create' className=''>
-              <button className='btn bg-green-700 rounded-3xl'>
-                Add
-                <br /> Spot
-              </button>
-            </Link>
-          </div>
           <SideBar />
-        </div>
+        </div> */}
       </div>
     </ThemeProvider>
   )

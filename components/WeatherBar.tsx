@@ -55,7 +55,7 @@ const WeatherBar = (): JSX.Element => {
 
   return (
     <>
-      <div className='flex gap-8'>
+      <div className='flex justify-between mb-4'>
         <div className='self-center items-center font-bold'>
           {data?.location.name ? (
             <div>

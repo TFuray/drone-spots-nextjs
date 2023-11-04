@@ -27,9 +27,9 @@ export default function DefaultNavbar() {
                 </div>
               </Link>
             </div>
-            <div className=' md:block'>
-              <MainNav/>
-            </div>
+          </div>
+          <div className=' md:block'>
+            <MainNav />
           </div>
           <div className='block'>
             <div className='flex items-center ml-4 md:ml-6'>

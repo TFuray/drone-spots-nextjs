@@ -81,12 +81,12 @@ export default function Create() {
     }
   })
 
-  const MapWithNoSSR = dynamic(() => import('../../components/Map/MapDragMarker'), {
+  const MapWithNoSSR = dynamic(() => import('components/Map/MapDragMarker'), {
     ssr: false
   })
 
   return (
-    <div className='flex justify-around'>
+    <div className='flex justify-around mt-12'>
       <div>
         <Link href='/' className='btn gap-x-2 btn-ghost'>
           <Icon name='arrow-left' className='text-xl' /> Back
