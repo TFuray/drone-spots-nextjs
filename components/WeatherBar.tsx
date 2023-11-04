@@ -11,13 +11,13 @@ import {
   West
 } from 'public/arrows/Arrows'
 import { useState } from 'react'
-import { useWeatherStore } from '../store/store'
+import { useWeatherStore } from 'store/store'
 
 const WeatherBar = (): JSX.Element => {
   const data = useWeatherStore(state => state.weatherData)
-
+  console.log(data)
   const displayDirection = () => {
-    if (!data) return <div className='text-sm text-center'>loading...</div>
+    if (!data) return <div className='text-sm text-center'>Enter location...</div>
     if (data.current.wind_dir === 'N') {
       return <North />
     } else if (data.current.wind_dir === 'NNE') {
@@ -55,7 +55,7 @@ const WeatherBar = (): JSX.Element => {
 
   return (
     <>
-      <div className='flex gap-8'>
+      <div className='flex justify-between mb-4'>
         <div className='self-center items-center font-bold'>
           {data?.location.name ? (
             <div>
@@ -65,7 +65,7 @@ const WeatherBar = (): JSX.Element => {
           ) : (
             <>
               <div className='underline text-center font-bold'>location</div>
-              <div className='font-normal text-sm text-center'>loading...</div>
+              <div className='font-normal text-sm text-center'>Enter location...</div>
             </>
           )}
         </div>
@@ -98,7 +98,7 @@ const WeatherBar = (): JSX.Element => {
                 {data?.current.condition.text}
               </div>
             ) : (
-              <div className='font-normal'>loading...</div>
+              <div className='font-normal'>Enter location...</div>
             )}
           </div>
         </div>

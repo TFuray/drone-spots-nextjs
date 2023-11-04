@@ -5,7 +5,7 @@ import { ChangeEvent, useState } from 'react'
 import { toast } from 'react-toastify'
 import { useCoordinatesStore, useWeatherStore } from 'store/store'
 import { Coordinates, WeatherData } from 'types/weather'
-import { Location } from '../types/lanLng';
+import { Location } from 'types/lanLng';
 import { ReverseGeo } from 'types/reverseGeo'
 
 const SearchBar = () => {
@@ -18,7 +18,6 @@ const SearchBar = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLocation(e.target.value)
   }
-
   const getWeatherData = async (input: string) => {
     try {
       const response = await axios.get<WeatherData>(

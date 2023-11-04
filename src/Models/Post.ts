@@ -1,4 +1,4 @@
-import mongoose, { Decimal128, Document, model, Model, Schema } from 'mongoose'
+import mongoose, { Document, model, Model, Schema } from 'mongoose'
 
 export interface IPost extends Document {
   title: string
