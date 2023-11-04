@@ -9,8 +9,8 @@ import useFetch, { revalidate } from 'http-react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
-import Header from '../../components/Header'
-import Input from '../../components/Input'
+import Header from 'components/Header'
+import Input from 'components/Input'
 import { useDraggingCoordinatesStore } from 'store/store'
 import { ReverseGeo } from 'types/reverseGeo'
 

@@ -1,7 +1,7 @@
 'use client'
 
 import axios from 'axios'
-import HomeButton from '../components/HomeButton'
+import HomeButton from 'components/HomeButton'
 
 import { ChangeEvent, useState } from 'react'
 import DisplayData from './DisplayData'
