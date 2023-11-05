@@ -20,14 +20,14 @@ const MainNav = ({
       active: pathname === `/`
     },
     {
-      href: `/addspot`,
+      href: `/spots/add-spot`,
       label: 'Add Spot',
       active: pathname === `/addspot`
     },
     {
-      href: `/myspots`,
+      href: `/spots`,
       label: 'My Spots',
-      active: pathname === `/myspots`
+      active: pathname === `/spots`
     },
     {
       href: `/settings`,
