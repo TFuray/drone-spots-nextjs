@@ -3,12 +3,12 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 
 const newSpotSchema = z.object({
-  title: z.string().min(1).max(255),
-  city: z.string().min(1),
-  state: z.string().min(1),
-  latitude: z.number().min(1),
-  longitude: z.number().min(1),
-  description: z.string().min(1),
+  title: z.string().min(1, 'Title is required.').max(255),
+  city: z.string().min(1, 'City is required'),
+  state: z.string().min(1, 'State is required.'),
+  latitude: z.number().min(1, 'Latitude is required.'),
+  longitude: z.number().min(1, 'Longitude is requried'),
+  description: z.string().min(1, 'Description is required'),
   imageUrl: z.string()
 })
 
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
   const body = await request.json()
   const validation = newSpotSchema.safeParse(body)
   if (!validation.success) {
-    return NextResponse.json(validation.error.errors, { status: 400 })
+    return NextResponse.json(validation.error.format(), { status: 400 })
   }
 
   const newSpot = await prisma.spot.create({
