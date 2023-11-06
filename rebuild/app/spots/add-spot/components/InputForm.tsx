@@ -1,3 +1,5 @@
+import { newSpotSchema } from '@/app/validationSchemas'
+import { zodResolver } from '@hookform/resolvers/zod'
 import {
   Button,
   Callout,
@@ -14,21 +16,21 @@ import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { BsCardImage, BsImageFill } from 'react-icons/bs'
 import SimpleMDE from 'react-simplemde-editor'
+import { z } from 'zod'
 
-interface SpotForm {
-  title: string
-  city: string
-  state: string
-  latitude: number
-  longitude: number
-  description: string
-  imageUrl: string
-}
+type SpotForm = z.infer<typeof newSpotSchema>
 
 const InputForm = () => {
   const router = useRouter()
   const [error, setError] = useState('')
-  const { register, control, handleSubmit } = useForm<SpotForm>()
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<SpotForm>({
+    resolver: zodResolver(newSpotSchema)
+  })
   return (
     <div>
       <form
@@ -50,12 +52,15 @@ const InputForm = () => {
               </TextField.Slot>
               <TextField.Input placeholder='Title' {...register('title')} />
             </TextField.Root>
+            {errors.title && <Text color='red'>{errors.title.message}</Text>}
             <TextField.Root>
               <TextField.Input placeholder='City' {...register('city')} />
             </TextField.Root>
+            {errors.city && <Text color='red'>{errors.city.message}</Text>}
             <TextField.Root>
               <TextField.Input placeholder='State' {...register('state')} />
             </TextField.Root>
+            {errors.state && <Text color='red'>{errors.state.message}</Text>}
             <TextField.Root>
               <TextField.Input
                 type='number'
@@ -63,6 +68,9 @@ const InputForm = () => {
                 {...register('latitude', { valueAsNumber: true })}
               />
             </TextField.Root>
+            {errors.latitude && (
+              <Text color='red'>{errors.latitude.message}</Text>
+            )}
             <TextField.Root>
               <TextField.Input
                 type='number'
@@ -70,6 +78,9 @@ const InputForm = () => {
                 {...register('longitude', { valueAsNumber: true })}
               />
             </TextField.Root>
+            {errors.longitude && (
+              <Text color='red'>{errors.longitude.message}</Text>
+            )}
             <Controller
               name='description'
               control={control}
@@ -78,6 +89,11 @@ const InputForm = () => {
               )}
             />
 
+            {errors.description && (
+              <Text color='red' as='p'>
+                {errors.description.message}
+              </Text>
+            )}
             <TextField.Root>
               <TextField.Slot>
                 <BsCardImage />
@@ -87,6 +103,9 @@ const InputForm = () => {
                 {...register('imageUrl')}
               />
             </TextField.Root>
+            {errors.imageUrl && (
+              <Text color='red'>{errors.imageUrl.message}</Text>
+            )}
             <Flex justify='between' className='mb-2'>
               <Button color='grass' variant='solid'>
                 Save Spot
@@ -96,11 +115,11 @@ const InputForm = () => {
               </Button>
             </Flex>
           </Flex>
-            {error && (
-              <Callout.Root color='red'>
-                <Callout.Text>{error}</Callout.Text>
-              </Callout.Root>
-            )}
+          {error && (
+            <Callout.Root color='red'>
+              <Callout.Text>{error}</Callout.Text>
+            </Callout.Root>
+          )}
         </Card>
       </form>
     </div>

@@ -1,16 +1,6 @@
 import prisma from '@/lib/prismadb'
 import { NextRequest, NextResponse } from 'next/server'
-import { z } from 'zod'
-
-const newSpotSchema = z.object({
-  title: z.string().min(1, 'Title is required.').max(255),
-  city: z.string().min(1, 'City is required'),
-  state: z.string().min(1, 'State is required.'),
-  latitude: z.number().min(1, 'Latitude is required.'),
-  longitude: z.number().min(1, 'Longitude is requried'),
-  description: z.string().min(1, 'Description is required'),
-  imageUrl: z.string()
-})
+import { newSpotSchema } from '../../validationSchemas'
 
 export async function POST(request: NextRequest) {
   const body = await request.json()
@@ -30,5 +20,5 @@ export async function POST(request: NextRequest) {
       imageUrl: body.imageUrl
     }
   })
-  return NextResponse.json(newSpot, {status:201})
+  return NextResponse.json(newSpot, { status: 201 })
 }
