@@ -1,5 +1,7 @@
-import { Card, Flex, TextArea, TextField, Text, Heading } from '@radix-ui/themes'
+import { Card, Flex, TextField, Text, Heading, Button } from '@radix-ui/themes'
 import {BsImageFill, BsCardImage} from 'react-icons/bs'
+import SimpleMDE from 'react-simplemde-editor'
+import 'easymde/dist/easymde.min.css'
 
 const InputForm = () => {
   return (
@@ -12,8 +14,20 @@ const InputForm = () => {
           </TextField.Slot>
           <TextField.Input placeholder='Title' />
         </TextField.Root>
+        <TextField.Root>
+          <TextField.Input placeholder='City' />
+        </TextField.Root>
+        <TextField.Root>
+          <TextField.Input placeholder='State' />
+        </TextField.Root>
+        <TextField.Root>
+          <TextField.Input placeholder='Latitude' />
+        </TextField.Root>
+        <TextField.Root>
+          <TextField.Input placeholder='Longitude' />
+        </TextField.Root>
 
-        <TextArea placeholder='Description' />
+        <SimpleMDE placeholder='Description' />
 
         <TextField.Root>
           <TextField.Slot>
@@ -21,6 +35,12 @@ const InputForm = () => {
           </TextField.Slot>
           <TextField.Input placeholder='Image Link' />
         </TextField.Root>
+
+        <Flex justify='between' >
+
+      <Button color='grass' variant='solid'>Save Spot</Button>
+      <Button color='red' variant='solid'>Cancel</Button>
+        </Flex>
       </Flex>
     </Card>
   )
