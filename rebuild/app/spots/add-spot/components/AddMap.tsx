@@ -1,24 +1,25 @@
 import { Card } from '@radix-ui/themes'
-import 'leaflet-defaulticon-compatibility'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import InputForm from './InputForm'
-import { useMemo } from 'react'
+import { useMemo , useEffect} from 'react'
+import dynamic from 'next/dynamic'
 
 const AddMap = () => {
-  const eventHandlers = useMemo(
-    () => ({
-      dragend() {
-        const marker = markerRef.current
-        if (marker != null) {
-          const latlng = marker.getLatLng()
-          // setDraggingCoordinates({lat: latlng.lat, lng: latlng.lng})
-        }
-      }
-    }),
-    []
-  )
+  // const eventHandlers = useMemo(
+  //   () => ({
+  //     dragend() {
+  //       const marker = markerRef.current
+  //       if (marker != null) {
+  //         const latlng = marker.getLatLng()
+  //         // setDraggingCoordinates({lat: latlng.lat, lng: latlng.lng})
+  //       }
+  //     }
+  //   }),
+  //   []
+  // )
+
   return (
     <>
       <div className='flex gap-6 mt-10 justify-center place-items-center'>

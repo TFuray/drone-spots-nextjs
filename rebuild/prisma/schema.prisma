@@ -23,4 +23,3 @@ model Spot {
   createdAt   DateTime @default(now())
   updatredAt  DateTime @updatedAt
 }
-

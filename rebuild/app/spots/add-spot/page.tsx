@@ -1,11 +1,16 @@
 'use client'
 
-import AddMap from "./components/AddMap"
+import dynamic from 'next/dynamic'
+
+// import AddMap from "./components/AddMap"
 
 const AddSpot = () => {
+    const MapWithNoSSR = dynamic(() => import('./components/AddMap'), {
+      ssr: false
+    })
   return (
     <div>
-      <AddMap/>
+      <MapWithNoSSR/>
     </div>
   )
 }

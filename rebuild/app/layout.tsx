@@ -21,10 +21,9 @@ export default function RootLayout({
   return (
     <html lang='en' className={inter.variable}>
       <body className={inter.className}>
-<Theme appearance="light">
+<Theme >
           <NavBar />
           {children}
-          <ThemePanel/>
         </Theme>
       </body>
     </html>
