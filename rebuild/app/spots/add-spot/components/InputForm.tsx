@@ -1,4 +1,5 @@
 import { newSpotSchema } from '@/app/validationSchemas'
+import ErrorMessage from '@/components/ui/ErrorMessage'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
   Button,
@@ -52,15 +53,15 @@ const InputForm = () => {
               </TextField.Slot>
               <TextField.Input placeholder='Title' {...register('title')} />
             </TextField.Root>
-            {errors.title && <Text color='red'>{errors.title.message}</Text>}
+            {<ErrorMessage>{errors.title?.message}</ErrorMessage>}
             <TextField.Root>
               <TextField.Input placeholder='City' {...register('city')} />
             </TextField.Root>
-            {errors.city && <Text color='red'>{errors.city.message}</Text>}
+            {<ErrorMessage>{errors.city?.message}</ErrorMessage>}
             <TextField.Root>
               <TextField.Input placeholder='State' {...register('state')} />
             </TextField.Root>
-            {errors.state && <Text color='red'>{errors.state.message}</Text>}
+            {<ErrorMessage>{errors.state?.message}</ErrorMessage>}
             <TextField.Root>
               <TextField.Input
                 type='number'
@@ -68,9 +69,7 @@ const InputForm = () => {
                 {...register('latitude', { valueAsNumber: true })}
               />
             </TextField.Root>
-            {errors.latitude && (
-              <Text color='red'>{errors.latitude.message}</Text>
-            )}
+            {<ErrorMessage>{errors.latitude?.message}</ErrorMessage>}
             <TextField.Root>
               <TextField.Input
                 type='number'
@@ -78,9 +77,7 @@ const InputForm = () => {
                 {...register('longitude', { valueAsNumber: true })}
               />
             </TextField.Root>
-            {errors.longitude && (
-              <Text color='red'>{errors.longitude.message}</Text>
-            )}
+            {<ErrorMessage>{errors.longitude?.message}</ErrorMessage>}
             <Controller
               name='description'
               control={control}
@@ -89,11 +86,7 @@ const InputForm = () => {
               )}
             />
 
-            {errors.description && (
-              <Text color='red' as='p'>
-                {errors.description.message}
-              </Text>
-            )}
+            {<ErrorMessage>{errors.description?.message}</ErrorMessage>}
             <TextField.Root>
               <TextField.Slot>
                 <BsCardImage />
@@ -103,9 +96,7 @@ const InputForm = () => {
                 {...register('imageUrl')}
               />
             </TextField.Root>
-            {errors.imageUrl && (
-              <Text color='red'>{errors.imageUrl.message}</Text>
-            )}
+            {<ErrorMessage>{errors.imageUrl?.message}</ErrorMessage>}
             <Flex justify='between' className='mb-2'>
               <Button color='grass' variant='solid'>
                 Save Spot
