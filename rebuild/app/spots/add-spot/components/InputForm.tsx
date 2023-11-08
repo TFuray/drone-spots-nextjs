@@ -1,5 +1,6 @@
 import { newSpotSchema } from '@/app/validationSchemas'
 import ErrorMessage from '@/components/ui/ErrorMessage'
+import Spinner from '@/components/ui/Spinner'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
   Button,
@@ -24,6 +25,8 @@ type SpotForm = z.infer<typeof newSpotSchema>
 const InputForm = () => {
   const router = useRouter()
   const [error, setError] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const {
     register,
     control,
@@ -32,14 +35,17 @@ const InputForm = () => {
   } = useForm<SpotForm>({
     resolver: zodResolver(newSpotSchema)
   })
+
   return (
     <div>
       <form
         onSubmit={handleSubmit(async data => {
           try {
+            setIsSubmitting(true)
             await axios.post('/api/spots', data)
             router.push('/')
           } catch (error) {
+            setIsSubmitting(false)
             setError('An unexpected error occured.')
           }
         })}
@@ -64,17 +70,17 @@ const InputForm = () => {
             {<ErrorMessage>{errors.state?.message}</ErrorMessage>}
             <TextField.Root>
               <TextField.Input
-                type='number'
+                type='float'
                 placeholder='Latitude'
-                {...register('latitude', { valueAsNumber: true })}
+                {...register('latitude', { setValueAs: v => parseFloat(v) })}
               />
             </TextField.Root>
             {<ErrorMessage>{errors.latitude?.message}</ErrorMessage>}
             <TextField.Root>
               <TextField.Input
-                type='number'
+                type='float'
                 placeholder='Longitude'
-                {...register('longitude', { valueAsNumber: true })}
+                {...register('longitude', { setValueAs: v => parseFloat(v) })}
               />
             </TextField.Root>
             {<ErrorMessage>{errors.longitude?.message}</ErrorMessage>}
@@ -98,8 +104,8 @@ const InputForm = () => {
             </TextField.Root>
             {<ErrorMessage>{errors.imageUrl?.message}</ErrorMessage>}
             <Flex justify='between' className='mb-2'>
-              <Button color='grass' variant='solid'>
-                Save Spot
+              <Button disabled={isSubmitting} color='grass' variant='solid'>
+                Save Spot{isSubmitting && <Spinner />}
               </Button>
               <Button color='red' variant='solid'>
                 Cancel
