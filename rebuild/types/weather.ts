@@ -13,6 +13,10 @@ export interface DraggingCoordinates {
   lng: number
 }
 
+export interface Search{
+  isSearching: boolean
+}
+
 export interface Current {
   last_updated_epoch: number
   last_updated: string

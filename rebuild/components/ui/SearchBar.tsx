@@ -1,7 +1,7 @@
-import { useCoordinatesStore, useWeatherStore } from '@/store/store'
+import { useCoordinatesStore, useWeatherStore, useSearchStore } from '@/store/store'
 import { Location } from '@/types/lanLng'
 import { ReverseGeo } from '@/types/reverseGeo'
-import { Coordinates, WeatherData } from '@/types/weather'
+import { Coordinates, WeatherData, Search } from '@/types/weather'
 import axios from 'axios'
 import {BiCurrentLocation} from 'react-icons/bi'
 import { ChangeEvent, useState } from 'react'
@@ -15,6 +15,7 @@ const SearchBar = () => {
   const [location, setLocation] = useState('')
   const setWeatherData = useWeatherStore(state => state.setWeatherData)
   const setCoordinates = useCoordinatesStore(state => state.setCoordinates)
+  const setSearch = useSearchStore(state => state.setSearch)
 
   const { register, handleSubmit } = useForm()
 
@@ -28,6 +29,7 @@ const SearchBar = () => {
       )
       console.log(response.data)
       setWeatherData(response.data)
+      setSearch(true)
       setCoordinates({
         latitude: response.data.location.lat,
         longitude: response.data.location.lon

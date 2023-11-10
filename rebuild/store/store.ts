@@ -1,7 +1,12 @@
 import { mountStoreDevtool } from 'simple-zustand-devtools'
-import { Coordinates, DraggingCoordinates, WeatherData } from '../types/weather'
 import { create } from 'zustand'
-import { persist, createJSONStorage } from 'zustand/middleware'
+import { createJSONStorage, persist } from 'zustand/middleware'
+import {
+  Coordinates,
+  DraggingCoordinates,
+  // Search,
+  WeatherData
+} from '../types/weather'
 
 interface WeatherStore {
   weatherData: WeatherData | null
@@ -19,14 +24,24 @@ interface DraggingCoordinatesStore {
   setDraggingCoordinates: (data: DraggingCoordinates) => void
 }
 
+interface SearchStore {
+  isSearching: boolean | boolean
+  setSearch: (data: boolean) => void
+}
+
+export const useSearchStore = create<SearchStore>(set => ({
+  isSearching: false,
+  setSearch: data => set({ isSearching: true })
+}))
+
 export const useWeatherStore = create<WeatherStore>(set => ({
   weatherData: null,
   setWeatherData: data => set({ weatherData: data })
 }))
 
 export const useCoordinatesStore = create<CoordinatesStore>(set => ({
-  latitude: 38.5816,
-  longitude: -121.4944,
+  latitude: 38.5,
+  longitude: -101.7,
   setCoordinates: data =>
     set({ latitude: data.latitude, longitude: data.longitude })
 }))

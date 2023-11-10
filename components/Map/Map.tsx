@@ -29,7 +29,6 @@ const Map = () => {
   }
 
   return (
-    <div className={styles.fullscreen}>
     <MapContainer
       center={[38.5, -121.7]}
       zoom={5}
@@ -45,7 +44,6 @@ const Map = () => {
 
       <RecenterAutomatically lat={latitude} lng={longitude} />
     </MapContainer>
-</div>
   )
 }
 

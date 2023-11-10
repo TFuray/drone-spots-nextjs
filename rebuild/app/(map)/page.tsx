@@ -1,9 +1,7 @@
 'use client'
 
 import SearchBar from '@/components/ui/SearchBar'
-import { Button } from '@radix-ui/themes'
 import dynamic from 'next/dynamic'
-import Map from './components/Map'
 import Weather from '@/components/weatherDisplay/Weather'
 
 export default function Home() {
