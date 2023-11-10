@@ -60,14 +60,14 @@ const MainNav = ({
           key={route.href}
           href={route.href}
           className={cn(
-            'text-lg transition-colors hover:text-zinc-800',
-            route.active ? 'text-zinc-800' : 'text-zinc-500'
+            ' mt-2 text-lg transition-colors hover:text-zinc-500',
+            route.active ? 'text-zinc-200' : 'text-zinc-400'
           )}
         >
           {route.label}
         </Link>
       ))}
-    </div>
+</div>
   )
 }
 export default MainNav

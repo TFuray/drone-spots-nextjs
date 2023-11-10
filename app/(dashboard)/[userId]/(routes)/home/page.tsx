@@ -536,7 +536,7 @@ export default function Page() {
               </button>
             </Link>
           </div> */}
-          {/* <SideBar /> */}
+          <SideBar />
         </div>
         <div
           className='min-w-full min-h-full static'

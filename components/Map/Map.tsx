@@ -13,6 +13,7 @@ import {
 } from 'react-leaflet'
 import { useCoordinatesStore } from 'store/store'
 import Markers from './markers/Markers'
+import styles from './Map.module.css'
 
 const Map = () => {
   const latitude = useCoordinatesStore(state => state.latitude)
@@ -28,6 +29,7 @@ const Map = () => {
   }
 
   return (
+    <div className={styles.fullscreen}>
     <MapContainer
       center={[38.5, -121.7]}
       zoom={5}
@@ -43,6 +45,7 @@ const Map = () => {
 
       <RecenterAutomatically lat={latitude} lng={longitude} />
     </MapContainer>
+</div>
   )
 }
 

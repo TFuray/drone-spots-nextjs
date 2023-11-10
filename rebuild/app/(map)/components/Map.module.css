@@ -1,0 +1,9 @@
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  background-color: #000000; /* Set your desired background color or image */
+  z-index: -1; /* Send it to the back */
+}

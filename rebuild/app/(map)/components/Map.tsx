@@ -2,16 +2,19 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import { MapContainer, TileLayer, useMap } from 'react-leaflet'
+import styles from './map.module.css'
 
 const Map = () => {
   return (
-    <div id='map' style={{height:'90vh', width:'100%'}}>
+    <div className={styles.fullscreen} id='map'
+      // style={{ height: '90vh', width: '100%' }}
+    >
 
 
     <MapContainer
       center={[38.5, -121.7]}
       zoom={5}
-      scrollWheelZoom={false}
+      scrollWheelZoom={true}
       style={{ height: '100%', width: 'full' }}
     >
       <TileLayer
