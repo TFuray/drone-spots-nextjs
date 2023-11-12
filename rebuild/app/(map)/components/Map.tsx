@@ -25,18 +25,6 @@ const Map = () => {
   const zoom = 5.4
   console.log(center)
 
-  // function MyComponent() {
-  //   const map = useMapEvents({
-  //     click: () => {
-  //       map.locate()
-  //     },
-  //     locationfound: (location) => {
-  //       console.log('location found:', location)
-  //     },
-  //   })
-  //   return null
-  //   }
-
   function SearchedCoords() {
     if (isSearching) {
       const map = useMap()
@@ -67,7 +55,7 @@ const Map = () => {
           url={`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoib3R0ZXI3MDciLCJhIjoiY2xqeHh0M2hqMDRnazNrcWU5MzVqMml6YSJ9.T3txdvzcprGNOEKojg68kA`}
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-         <SearchedCoords />
+        <SearchedCoords />
       </MapContainer>
     </div>
   )
