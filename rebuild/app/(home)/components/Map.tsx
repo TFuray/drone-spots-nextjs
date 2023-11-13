@@ -2,7 +2,7 @@ import { useCoordinatesStore, useSearchStore } from '@/store/store'
 import 'leaflet-defaulticon-compatibility'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import 'leaflet/dist/leaflet.css'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import {
   MapContainer,
   TileLayer,

@@ -4,7 +4,7 @@ import { ReverseGeo } from '@/types/reverseGeo'
 import { Coordinates, WeatherData, Search } from '@/types/weather'
 import axios from 'axios'
 import {BiCurrentLocation} from 'react-icons/bi'
-import { ChangeEvent, useState } from 'react'
+// import { ChangeEvent, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import ErrorMessage from './ErrorMessage'
@@ -12,7 +12,7 @@ import ErrorMessage from './ErrorMessage'
 // type SearchForm = z.
 
 const SearchBar = () => {
-  const [location, setLocation] = useState('')
+  // const [location, setLocation] = useState('')
   const setWeatherData = useWeatherStore(state => state.setWeatherData)
   const setCoordinates = useCoordinatesStore(state => state.setCoordinates)
   const setSearch = useSearchStore(state => state.setSearch)
@@ -52,7 +52,7 @@ const SearchBar = () => {
       const response = await axios.get<ReverseGeo>(
         `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`
       )
-      setLocation(response.data.name)
+      // setLocation(response.data.name)
     } catch (error) {
       console.log(error)
     }
@@ -72,7 +72,7 @@ const SearchBar = () => {
         latitude: userLat,
         longitude: userLong
       })
-      setLocation(`${userLat}, ${userLong}`)
+      // setLocation(`${userLat}, ${userLong}`)
 
       getWeatherData(`${userLat},${userLong}`)
       coordsToCity(userLat, userLong)
