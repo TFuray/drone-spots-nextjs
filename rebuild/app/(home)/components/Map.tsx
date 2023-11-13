@@ -11,6 +11,7 @@ import {
   useMapEvents
 } from 'react-leaflet'
 import styles from './map.module.css'
+import Markers from './Markers'
 
 const Map = () => {
   const latitude = useCoordinatesStore(state => state.latitude)
@@ -56,6 +57,7 @@ const Map = () => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         <SearchedCoords />
+        <Markers />
       </MapContainer>
     </div>
   )

@@ -22,3 +22,14 @@ export async function POST(request: NextRequest) {
   })
   return NextResponse.json(newSpot, { status: 201 })
 }
+
+export async function GET() {
+  try {
+    const spots = await prisma.spot.findMany()
+    return NextResponse.json(spots)
+  } catch {
+    return NextResponse.json('error', {
+      status: 500
+    })
+  }
+}

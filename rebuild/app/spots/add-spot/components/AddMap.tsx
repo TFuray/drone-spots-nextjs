@@ -8,6 +8,7 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import InputForm from './InputForm'
 import { useDraggingCoordinatesStore } from '@/store/store'
 import DraggableMarker from './TestDragMarker'
+import { Icon } from 'leaflet'
 
 
 const AddMap = () => {
