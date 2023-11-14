@@ -18,13 +18,12 @@ const Map = () => {
   const longitude = useCoordinatesStore(state => state.longitude)
   const isSearching = useSearchStore(state => state.isSearching)
   const setSearch = useSearchStore(state => state.setSearch)
-  console.log(isSearching)
+
   const center = {
     lat: latitude,
     lng: longitude
   }
   const zoom = 5.4
-  console.log(center)
 
   function SearchedCoords() {
     if (isSearching) {
