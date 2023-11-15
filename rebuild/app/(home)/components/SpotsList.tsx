@@ -27,7 +27,7 @@ const SpotsList = () => {
       <ScrollArea type='auto' scrollbars='vertical' style={{height: 800}}>
         <Flex direction='column' gap='2'>
           {data.map(spot => (
-            <Card>
+            <Card key={spot.id}>
               <Heading size='4'>{spot.title.toUpperCase()}</Heading>
               <Text size='2' color='gray'>
                 {spot.city}, {spot.state}

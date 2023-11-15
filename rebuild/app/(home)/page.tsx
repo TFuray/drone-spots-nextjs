@@ -2,10 +2,13 @@
 
 import SearchBar from '@/components/ui/SearchBar'
 import Weather from '@/components/weatherDisplay/Weather'
+import { useWeatherStore } from '@/store/store'
 import dynamic from 'next/dynamic'
 import SpotsList from './components/SpotsList'
 
 export default function Home() {
+  const data = useWeatherStore(state => state.weatherData)
+
   const MapWithNoSSR = dynamic(() => import('./components/Map'), {
     ssr: false
   })
@@ -23,8 +26,7 @@ export default function Home() {
       </div>
 
       <div className='w-1/4 h-3/5 m-4'>
-
-      <SpotsList />
+        {data && (<SpotsList />)}
       </div>
 
       <MapWithNoSSR />
