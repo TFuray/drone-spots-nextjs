@@ -3,6 +3,7 @@ import 'leaflet-defaulticon-compatibility'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import 'leaflet/dist/leaflet.css'
 // import { useEffect, useState } from 'react'
+import { useWeatherStore } from '@/store/store'
 import {
   MapContainer,
   TileLayer,
@@ -10,14 +11,15 @@ import {
   useMapEvent,
   useMapEvents
 } from 'react-leaflet'
-import styles from './map.module.css'
 import Markers from './Markers'
+import styles from './map.module.css'
 
 const Map = () => {
   const latitude = useCoordinatesStore(state => state.latitude)
   const longitude = useCoordinatesStore(state => state.longitude)
   const isSearching = useSearchStore(state => state.isSearching)
   const setSearch = useSearchStore(state => state.setSearch)
+  const data = useWeatherStore(state => state.weatherData)
 
   const center = {
     lat: latitude,
@@ -56,7 +58,7 @@ const Map = () => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         <SearchedCoords />
-        <Markers />
+        {data && <Markers />}
       </MapContainer>
     </div>
   )

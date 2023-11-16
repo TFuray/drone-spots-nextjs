@@ -13,6 +13,7 @@ import {
 } from '@radix-ui/themes'
 import axios from 'axios'
 import 'easymde/dist/easymde.min.css'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
@@ -107,9 +108,6 @@ const InputForm = () => {
               <Button disabled={isSubmitting} color='grass' variant='solid'>
                 Save Spot{isSubmitting && <Spinner />}
               </Button>
-              <Button color='red' variant='solid'>
-                Cancel
-              </Button>
             </Flex>
           </Flex>
           {error && (
@@ -119,6 +117,9 @@ const InputForm = () => {
           )}
         </Card>
       </form>
+      <Button color='red' variant='solid'>
+        <Link href='/'>Cancel</Link>
+      </Button>
     </div>
   )
 }
