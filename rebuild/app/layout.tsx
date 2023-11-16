@@ -3,6 +3,7 @@ import { Theme, ThemePanel } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import AuthProvider from './auth/Provider'
 import './globals.css'
 import './theme-config.css'
 
@@ -21,10 +22,12 @@ export default function RootLayout({
   return (
     <html lang='en' className={inter.variable}>
       <body className={`${inter.className} `}>
-        <Theme>
-          <NavBar />
-          {children}
-        </Theme>
+        <AuthProvider>
+          <Theme>
+            <NavBar />
+            {children}
+          </Theme>
+        </AuthProvider>
       </body>
     </html>
   )
