@@ -12,6 +12,7 @@ export async function POST(request: NextRequest) {
   const newSpot = await prisma.spot.create({
     data: {
       title: body.title,
+      email: body.email,
       city: body.city,
       state: body.state,
       latitude: body.latitude,

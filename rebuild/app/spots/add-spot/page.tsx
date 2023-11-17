@@ -17,9 +17,10 @@ import {
 import axios from 'axios'
 import 'easymde/dist/easymde.min.css'
 import { Icon } from 'leaflet'
-import 'leaflet-defaulticon-compatibility'
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
-import 'leaflet/dist/leaflet.css'
+// import 'leaflet-defaulticon-compatibility'
+// import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
+// import 'leaflet/dist/leaflet.css'
+import { useSession } from 'next-auth/react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -35,6 +36,8 @@ const AddSpot = () => {
   // const MapWithNoSSR = dynamic(() => import('./components/AddMap'), {
   //   ssr: false
   // })
+
+  const { status, data: session } = useSession()
 
   const router = useRouter()
   const [error, setError] = useState('')
@@ -151,6 +154,20 @@ const AddSpot = () => {
                     />
                   </TextField.Root>
                   {<ErrorMessage>{errors.imageUrl?.message}</ErrorMessage>}
+
+                  <div className='hidden'>
+                    <TextField.Root>
+                      <TextField.Slot>
+                        <BsCardImage />
+                      </TextField.Slot>
+                      <TextField.Input
+                        placeholder='email'
+                        defaultValue={session?.user?.email!}
+                        {...register('email')}
+                      />
+                    </TextField.Root>
+                  </div>
+
                   <Flex justify='between' className='mb-2'>
                     <Button
                       disabled={isSubmitting}
@@ -214,16 +231,3 @@ const AddSpot = () => {
   )
 }
 export default AddSpot
-
-// const AddSpot = () => {
-//     const MapWithNoSSR = dynamic(() => import('./components/AddMap'), {
-//       ssr: false
-//     })
-//   return (
-//     <div>
-//       <MapWithNoSSR/>
-
-//     </div>
-//   )
-// }
-// export default AddSpot

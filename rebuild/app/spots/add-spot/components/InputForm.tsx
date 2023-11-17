@@ -19,23 +19,28 @@ import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { BsCardImage, BsImageFill } from 'react-icons/bs'
 import SimpleMDE from 'react-simplemde-editor'
+import { useSession } from 'next-auth/react'
 import { z } from 'zod'
 
 type SpotForm = z.infer<typeof newSpotSchema>
 
 const InputForm = () => {
   const router = useRouter()
+  const { status, data: session } = useSession()
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const {
     register,
     control,
+    setValue,
     handleSubmit,
     formState: { errors }
   } = useForm<SpotForm>({
     resolver: zodResolver(newSpotSchema)
   })
+
+  // setValue('email', session?.user?.email!)
 
   return (
     <div>
@@ -103,7 +108,17 @@ const InputForm = () => {
                 {...register('imageUrl')}
               />
             </TextField.Root>
-            {<ErrorMessage>{errors.imageUrl?.message}</ErrorMessage>}
+              {<ErrorMessage>{errors.imageUrl?.message}</ErrorMessage>}
+            <TextField.Root >
+              <TextField.Slot>
+                <BsCardImage />
+              </TextField.Slot>
+              <TextField.Input
+                placeholder='email'
+                defaultValue={session?.user?.email!}
+                {...register('email')}
+              />
+            </TextField.Root>
             <Flex justify='between' className='mb-2'>
               <Button disabled={isSubmitting} color='grass' variant='solid'>
                 Save Spot{isSubmitting && <Spinner />}
