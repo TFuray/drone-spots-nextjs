@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 import { RiMapFill } from 'react-icons/ri'
@@ -16,11 +17,22 @@ const MainNav = ({
 }: React.HTMLAttributes<HTMLElement>) => {
   const pathname = usePathname()
 
+  const [id, setId] = useState(null)
+  const [isLoading, setLoading] = useState(true)
   const { status, data: session } = useSession()
 
-  const id = prisma.user.findUnique({
-    where: { email: session?.user?.email! }
-  })
+  useEffect(() => {
+    fetch('/api/user')
+      .then(res => res.json())
+      .then(data => {
+        setId(data)
+        setLoading(false)
+      })
+  }, [])
+  // console.log(id)
+  // const id = prisma.user.findUnique({
+  //   where: { email: session?.user?.email! }
+  // })
   const routes = [
     {
       href: `/`,
@@ -33,9 +45,9 @@ const MainNav = ({
       active: pathname === `/addspot`
     },
     {
-      href: `/spots/my-spots/${id}`,
+      href: `/spots/my-spots/`,
       label: 'My Spots',
-      active: pathname === `/spots`
+      active: pathname === `/spots/my-spots`
     },
     {
       href: `/settings`,

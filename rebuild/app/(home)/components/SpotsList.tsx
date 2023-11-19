@@ -14,6 +14,7 @@ const SpotsList = () => {
     state: string
     description: string
     imageUrl: string
+    email: string
     default: [any]
   }
 
