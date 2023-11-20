@@ -6,7 +6,7 @@ import { getServerSession } from 'next-auth'
 const page = async () => {
   const session = await getServerSession(authOptions)
 
-  console.log(session?.user?.email)
+  // console.log(session?.user?.email)
   const spots = await prisma.spot.findMany({
     where: {
       email: `${session?.user?.email}`
@@ -30,7 +30,7 @@ const page = async () => {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {/* {spots.map(spot => (
+            {spots.map(spot => (
             <Table.Row key={spot.id}>
               <Table.Cell>{spot.title}</Table.Cell>
               <Table.Cell>
@@ -39,7 +39,7 @@ const page = async () => {
               <Table.Cell>{spot.description}</Table.Cell>
               <Table.Cell>{spot.imageUrl}</Table.Cell>
             </Table.Row>
-          ))} */}
+          ))}
           </Table.Body>
         </Table.Root>
       </Box>

@@ -18,6 +18,7 @@ const Login = () => {
                 src={session.user!.image!}
                 fallback='?'
                 size='2'
+                referrerPolicy='no-referrer'
               />
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
