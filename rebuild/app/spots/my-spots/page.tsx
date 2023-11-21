@@ -19,14 +19,14 @@ const page = async () => {
         <Heading className='p-4 w-1/2'>My Spots</Heading>
       </Box>
 
-      <Box>
+      <Box className='w-1/2'>
         <Table.Root>
           <Table.Header>
             <Table.Row>
               <Table.ColumnHeaderCell>Title</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell>Location</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell>Description</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Image</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell width=''>Image</Table.ColumnHeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>

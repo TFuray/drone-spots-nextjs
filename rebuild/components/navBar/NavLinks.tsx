@@ -19,20 +19,16 @@ const MainNav = ({
 
   const [id, setId] = useState(null)
   const [isLoading, setLoading] = useState(true)
-  const { status, data: session } = useSession()
 
-  useEffect(() => {
-    fetch('/api/user')
-      .then(res => res.json())
-      .then(data => {
-        setId(data)
-        setLoading(false)
-      })
-  }, [])
-  // console.log(id)
-  // const id = prisma.user.findUnique({
-  //   where: { email: session?.user?.email! }
-  // })
+  // useEffect(() => {
+  //   fetch('/api/user')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setId(data)
+  //       setLoading(false)
+  //     })
+  // }, [])
+
   const routes = [
     {
       href: `/`,
