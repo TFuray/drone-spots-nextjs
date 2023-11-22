@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en' className={inter.variable}>
+    <html lang='en' data-theme='nord' className={inter.variable}>
       <body className={`${inter.className} `}>
         <AuthProvider>
           <Theme>
