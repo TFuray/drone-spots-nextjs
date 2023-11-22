@@ -31,8 +31,8 @@ const Markers = () => {
           position={[spot.latitude, spot.longitude]}
           icon={
             new Icon({
-              iconUrl: '/markerIcon2.png'
-              // iconSize: [25, 41],
+              iconUrl: '/markerIcon.png',
+              iconSize: [42, 42],
               // iconAnchor: [12, 41]
             })
           }
