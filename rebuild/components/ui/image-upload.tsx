@@ -7,12 +7,14 @@ import { useEffect, useState } from 'react'
 import { Button } from './button'
 
 interface ImageUploadProps {
+  disabled?: boolean
   onChange: (value: string) => void
   onRemove: (value: string) => void
   value: string[]
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({
+  disabled,
   onChange,
   onRemove,
   value
@@ -60,6 +62,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
           return (
             <Button
               type='button'
+              disabled={disabled}
               variant='secondary'
               onClick={onClick}
             >

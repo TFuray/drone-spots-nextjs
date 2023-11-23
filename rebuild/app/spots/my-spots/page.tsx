@@ -35,7 +35,7 @@ const page = async () => {
         </Heading>
       </Box>
 
-      <Grid className='m-4yt' columns='3' gap='3' width='auto'>
+      <Grid className='m-4 ' columns='3' gap='3' width='auto'>
         {spots.map(spot => (
           <Card key={spot.id} className='bg-slate-300'>
             <CardHeader className='relative'>

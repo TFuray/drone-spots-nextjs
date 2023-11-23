@@ -176,7 +176,7 @@ const AddSpot = () => {
                     >
                       Save Spot{isSubmitting && <Spinner />}
                     </Button>
-                    <Button color='red' variant='solid'>
+                    <Button onClick={() => (router.push('/'))} color='red' variant='solid'>
                       Cancel
                     </Button>
                   </Flex>
