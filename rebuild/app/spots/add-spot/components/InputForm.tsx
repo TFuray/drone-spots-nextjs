@@ -14,6 +14,7 @@ import {
 import axios from 'axios'
 import 'easymde/dist/easymde.min.css'
 import Link from 'next/link'
+import ImageUpload from '@/components/ui/image-upload'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
@@ -97,8 +98,9 @@ const InputForm = () => {
                 <SimpleMDE placeholder='Description' {...field} />
               )}
             />
-
             {<ErrorMessage>{errors.description?.message}</ErrorMessage>}
+
+
             <TextField.Root>
               <TextField.Slot>
                 <BsCardImage />
@@ -109,6 +111,8 @@ const InputForm = () => {
               />
             </TextField.Root>
               {<ErrorMessage>{errors.imageUrl?.message}</ErrorMessage>}
+
+
             <TextField.Root >
               <TextField.Slot>
                 <BsCardImage />
@@ -132,6 +136,7 @@ const InputForm = () => {
           )}
         </Card>
       </form>
+
       <Button color='red' variant='solid'>
         <Link href='/'>Cancel</Link>
       </Button>

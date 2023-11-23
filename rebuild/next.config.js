@@ -7,6 +7,9 @@ const nextConfig = {
         headers: [{ key: 'referrer-policy', value: 'no-referrer' }]
       }
     ]
+  },
+  images: {
+    domains: ['res.cloudinary.com']
   }
 }
 
