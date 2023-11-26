@@ -40,14 +40,12 @@ const page = async () => {
           <Card key={spot.id} className='bg-slate-300'>
             <CardHeader className='relative'>
               <div className='absolute top-0 right-0 mr-3 mt-3'>
-                <Avatar
-                  size='6'
-                  src={spot.imageUrl}
-                  fallback='img'
-                ></Avatar>
+                <Avatar size='6' src={spot.imageUrl} fallback='img'></Avatar>
               </div>
 
-              <CardTitle className='w-2/3'>{spot.title} </CardTitle>
+              <CardTitle className='w-2/3'>
+                <Link href={`/spots/my-spots/${spot.id}`}>{spot.title}</Link>
+              </CardTitle>
               <CardDescription className='w-2/3 line-clamp-2 text-gray-600'>
                 {spot.city}, {spot.state}
               </CardDescription>
