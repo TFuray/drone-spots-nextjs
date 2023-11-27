@@ -8,7 +8,16 @@ import {
   CardTitle
 } from '@/components/ui/card'
 import prisma from '@/lib/prismadb'
-import { Avatar, Box, Flex, Grid, Heading, Table, Text } from '@radix-ui/themes'
+import {
+  Avatar,
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Heading,
+  Table,
+  Text
+} from '@radix-ui/themes'
 import { getServerSession } from 'next-auth'
 import Link from 'next/link'
 
@@ -21,7 +30,6 @@ const page = async () => {
       email: `${session?.user?.email}`
     }
   })
-  console.log(spots.length)
 
   return (
     <>
@@ -43,9 +51,7 @@ const page = async () => {
                 <Avatar size='6' src={spot.imageUrl} fallback='img'></Avatar>
               </div>
 
-              <CardTitle className='w-2/3'>
-                <Link href={`/spots/my-spots/${spot.id}`}>{spot.title}</Link>
-              </CardTitle>
+              <CardTitle className='w-2/3'>{spot.title}</CardTitle>
               <CardDescription className='w-2/3 line-clamp-2 text-gray-600'>
                 {spot.city}, {spot.state}
               </CardDescription>
@@ -53,6 +59,11 @@ const page = async () => {
             <CardContent>
               <Text>{spot.description}</Text>
             </CardContent>
+            <div className='flex justify-end mr-4 mb-4'>
+              <Button color='red'>
+                <Link href={`/spots/my-spots/${spot.id}`}>Edit</Link>
+              </Button>
+            </div>
           </Card>
         ))}
       </Grid>

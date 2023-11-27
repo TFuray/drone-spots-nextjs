@@ -25,17 +25,32 @@ const SpotsList = () => {
 
   return (
     <div className='m-4'>
-      <ScrollArea type='auto' scrollbars='vertical' style={{height: 800}}>
+      <ScrollArea type='auto' scrollbars='vertical' style={{ height: 800 }}>
         <Flex direction='column' gap='2'>
           {data.map(spot => (
-            <Card key={spot.id}>
-              <Heading size='4'>{spot.title.toUpperCase()}</Heading>
-              <Text size='2' color='gray'>
-                {spot.city}, {spot.state}
-              </Text>
-              <br/>
-              <Text className='line-clamp-2' size='3'>{spot.description}</Text>
-            </Card>
+            <div
+              key={spot.id}
+              className='hover:cursor-pointer '
+              onClick={() => {
+                const modal = document.getElementById(
+                  `my_modal_${spot.id}`
+                ) as HTMLDialogElement | null
+                if (modal) {
+                  modal.showModal()
+                }
+              }}
+            >
+              <Card>
+                <Heading size='4'>{spot.title.toUpperCase()}</Heading>
+                <Text size='2' color='gray'>
+                  {spot.city}, {spot.state}
+                </Text>
+                <br />
+                <Text className='line-clamp-2' size='3'>
+                  {spot.description}
+                </Text>
+              </Card>
+            </div>
           ))}
         </Flex>
       </ScrollArea>

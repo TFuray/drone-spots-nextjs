@@ -47,7 +47,7 @@ const CardModel = ({ spot }: { spot: SpotType }) => {
       <div className='card-body'>
         <h2 className='card-title'>
           {spot.title}
-          <div className=''>
+          {/* <div className=''>
             <div className='rating rating-sm'>
               <input
                 type='radio'
@@ -76,7 +76,7 @@ const CardModel = ({ spot }: { spot: SpotType }) => {
                 className='mask mask-star-2 bg-orange-400'
               />
             </div>
-          </div>
+          </div> */}
         </h2>
         <div className='card-actions justify-start'>
           <div className='badge badge-accent'>{spot.city}</div>

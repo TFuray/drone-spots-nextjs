@@ -45,12 +45,15 @@ const Markers = () => {
           }
         >
           <Popup>
-            <div className='flex flex-col'>
-              <h1 className='text-lg'>
+            <div className='flex flex-col gap-1'>
+              <h1 className='text-lg text-center font-bold'>
                 <span className='font-bold text-[.9rem] tabular-nums align-super '></span>
                 {spot.title}{' '}
               </h1>
-
+              <div className='flex m-2'>
+                <div className='badge badge-accent badge-xs font-bold'>{spot.city}</div>
+                <div className='badge badge-accent badge-xs font-bold'>{spot.state}</div>
+              </div>
               <button
                 className='btn btn-sm '
                 onClick={() => {
@@ -67,14 +70,14 @@ const Markers = () => {
             </div>
           </Popup>
           <dialog id={`my_modal_${spot.id}`}>
-            <div>
+            <>
               <CardModel spot={spot} />
               <form method='dialog' className='modal-backdrop'>
                 <div className='card-actions justify-end'>
                   <button className='btn btn-primary'>Close</button>
                 </div>
               </form>
-            </div>
+            </>
           </dialog>
         </Marker>
       ))}

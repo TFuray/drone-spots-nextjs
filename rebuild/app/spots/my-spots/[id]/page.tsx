@@ -19,7 +19,7 @@ const SpotDetailPage = async ({params} : Props) => {
     notFound()
   }
   if (spot.email != session?.user?.email) {
-    
+
     redirect('/')
   }
 
