@@ -1,6 +1,7 @@
 import CardModel from '@/components/ui/CardModel'
 import useFetch from 'http-react'
 import { Icon } from 'leaflet'
+import Link from 'next/link'
 import { Marker, Popup } from 'react-leaflet'
 
 const Markers = () => {
@@ -51,8 +52,12 @@ const Markers = () => {
                 {spot.title}{' '}
               </h1>
               <div className='flex m-2'>
-                <div className='badge badge-accent badge-xs font-bold'>{spot.city}</div>
-                <div className='badge badge-accent badge-xs font-bold'>{spot.state}</div>
+                <div className='badge badge-accent badge-xs font-bold'>
+                  {spot.city}
+                </div>
+                <div className='badge badge-accent badge-xs font-bold'>
+                  {spot.state}
+                </div>
               </div>
               <button
                 className='btn btn-sm '
@@ -72,11 +77,16 @@ const Markers = () => {
           <dialog id={`my_modal_${spot.id}`}>
             <>
               <CardModel spot={spot} />
+              <div className='flex justify-between m-2'>
+                <Link href={`/spots/${spot.title}`}>
+                  <button className='btn btn-success rounded-lg'>Open</button>
+                </Link>
               <form method='dialog' className='modal-backdrop'>
                 <div className='card-actions justify-end'>
-                  <button className='btn btn-primary'>Close</button>
+                  <button className='btn btn-primary rounded-lg'>Close</button>
                 </div>
               </form>
+              </div>
             </>
           </dialog>
         </Marker>

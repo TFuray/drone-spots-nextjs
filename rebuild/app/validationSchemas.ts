@@ -10,3 +10,7 @@ export const newSpotSchema = z.object({
   description: z.string().min(1, 'Description is required'),
   imageUrl: z.string()
 })
+
+export const newCommentSchema = z.object({
+  text: z.string().min(1, 'Comment is required'),
+})
