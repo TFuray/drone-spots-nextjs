@@ -78,7 +78,7 @@ const Markers = () => {
             <>
               <CardModel spot={spot} />
               <div className='flex justify-between m-2'>
-                <Link href={`/spots/${spot.title}`}>
+                <Link href={`/spots/${spot.id}`}>
                   <button className='btn btn-success rounded-lg'>Open</button>
                 </Link>
               <form method='dialog' className='modal-backdrop'>

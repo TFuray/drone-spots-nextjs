@@ -1,8 +1,5 @@
-export {default } from 'next-auth/middleware'
+export { default } from 'next-auth/middleware'
 
 export const config = {
-  matcher: [
-    '/spots/add-spot',
-    
-  ]
+  matcher: ['/spots/add-spot']
 }
