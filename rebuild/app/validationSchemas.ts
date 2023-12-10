@@ -12,7 +12,7 @@ export const newSpotSchema = z.object({
 })
 
 export const newCommentSchema = z.object({
-  text: z.string(),
+  text: z.string().min(1, 'Comment is requried'),
   spotId: z.number(),
   author: z.string()
 })

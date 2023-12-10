@@ -10,7 +10,8 @@ import {
   Flex,
   Heading,
   Text,
-  TextField
+  TextField,
+  TextArea
 } from '@radix-ui/themes'
 import axios from 'axios'
 import { useSession } from 'next-auth/react'
@@ -62,15 +63,16 @@ const NewComment = ({ params }: Props) => {
             <Card size='2' style={{ width: 500 }}>
               <Flex direction='column' gap='3'>
                 <Heading size='6'>Add Comment</Heading>
-                <TextField.Root>
-                  <TextField.Slot>
+                {/* <TextArea.Root> */}
+                {/* <TextField.Slot>
                     <BsCardImage />
-                  </TextField.Slot>
-                  <TextField.Input
-                    placeholder='Write Comment'
-                    {...register('text')}
-                  />
-                </TextField.Root>
+                  </TextField.Slot> */}
+                <TextArea
+                  className='w-full bg-gray-100 rounded border border-gray-400 leading-normal resize-none h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white'
+                  placeholder='Write Comment'
+                  {...register('text')}
+                />
+                {/* </TextArea.Root> */}
                 {<ErrorMessage>{errors.text?.message}</ErrorMessage>}
                 {/* <Controller
                   name='text'
@@ -87,7 +89,7 @@ const NewComment = ({ params }: Props) => {
                     </TextField.Slot>
                     <TextField.Input
                       placeholder='author'
-                      defaultValue={session?.user?.email!}
+                      defaultValue={session?.user?.name!}
                       {...register('author')}
                     />
                   </TextField.Root>
@@ -99,15 +101,14 @@ const NewComment = ({ params }: Props) => {
                     <TextField.Input
                       placeholder='spotId'
                       defaultValue={params.spotTitle}
-                      {...register('spotId')}
+                      {...register('spotId', {
+                        setValueAs: value => parseInt(value)
+                      })}
                     />
                   </TextField.Root>
                 </div>
 
                 <Flex justify='between' className='mb-2'>
-                  <Button type='submit' disabled={isSubmitting} color='grass' variant='solid'>
-                    Save Spot{isSubmitting && <Spinner />}
-                  </Button>
                   <Button
                     onClick={() => router.push(`/spots/${params.spotTitle}`)}
                     color='red'
@@ -115,6 +116,15 @@ const NewComment = ({ params }: Props) => {
                   >
                     Cancel
                   </Button>
+                  <button
+                    type='submit'
+                    disabled={isSubmitting}
+                    // color='grass'
+                    // variant='solid'
+                    className='px-2.5 py-1.5 rounded-md text-white text-sm bg-green-600'
+                  >
+                    Save Spot{isSubmitting && <Spinner />}
+                  </button>
                 </Flex>
               </Flex>
               {error && (

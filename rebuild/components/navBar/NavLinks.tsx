@@ -32,7 +32,7 @@ const MainNav = ({
   const routes = [
     {
       href: `/`,
-      label: 'Dashboard',
+      label: 'Map',
       active: pathname === `/`
     },
     {
