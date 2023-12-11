@@ -3,23 +3,13 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
 import prisma from '@/lib/prismadb'
-import {
-  Avatar,
-  Box,
-  Button,
-  Flex,
-  Grid,
-  Heading,
-  Table,
-  Text
-} from '@radix-ui/themes'
+import { Avatar, Box, Button, Grid, Heading, Text } from '@radix-ui/themes'
 import { getServerSession } from 'next-auth'
-import Link from 'next/link'
+import { FaTrashAlt } from 'react-icons/fa'
 
 const page = async () => {
   const session = await getServerSession(authOptions)
@@ -60,48 +50,23 @@ const page = async () => {
               <Text>{spot.description}</Text>
             </CardContent>
             <div className='flex justify-end mr-4 mb-4'>
-              <Button color='red'>
-                <Link href={`/spots/my-spots/${spot.id}`}>Edit</Link>
+              <Button
+                color='red'
+                // onClick={() => {
+                //   prisma.spot.delete({
+                //     where: {
+                //       id: spot.id
+                //     }
+                //   })
+                // }}
+              >
+                <FaTrashAlt />
+                {/* <Link href={`/spots/my-spots/${spot.id}/edit`}>Edit</Link> */}
               </Button>
             </div>
           </Card>
         ))}
       </Grid>
-
-      {/* <Box className='w-1/2 pl-10'>
-        <Table.Root size='2' variant='surface'>
-          <Table.Header>
-            <Table.Row align='center'>
-              <Table.ColumnHeaderCell justify='center'>
-                Title
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell justify='center'>
-                Location
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell justify='center'>
-                Description
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell justify='center'>
-                Image
-              </Table.ColumnHeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {spots.map(spot => (
-              <Table.Row key={spot.id}>
-                <Table.Cell>
-                  <Link href={`/spots/my-spots/${spot.id}`}>{spot.title}</Link>
-                </Table.Cell>
-                <Table.Cell>
-                  {spot.city} {spot.state}
-                </Table.Cell>
-                <Table.Cell className=''>{spot.description}</Table.Cell>
-                <Table.Cell>{spot.imageUrl}</Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table.Root>
-      </Box> */}
     </>
   )
 }
