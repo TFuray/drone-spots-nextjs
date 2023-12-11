@@ -18,9 +18,9 @@ export default function RootLayout({
 }) {
   const { userId } = auth()
 
-    if (!userId) {
-      redirect('/sign-in')
-    }
+    // if (!userId) {
+    //   redirect('/sign-in')
+    // }
   return (
     <ClerkProvider>
       <FetchConfig baseUrl='/api'>

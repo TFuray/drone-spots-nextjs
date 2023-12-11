@@ -13,6 +13,7 @@ import {
 } from 'react-leaflet'
 import { useCoordinatesStore } from 'store/store'
 import Markers from './markers/Markers'
+import styles from './Map.module.css'
 
 const Map = () => {
   const latitude = useCoordinatesStore(state => state.latitude)
