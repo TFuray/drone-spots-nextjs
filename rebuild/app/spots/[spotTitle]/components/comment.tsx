@@ -1,4 +1,7 @@
+
+
 const Comment = ({ comment }) => {
+
   return (
     <div className='flex justify-between border w-full rounded-md bg-slate-300'>
       <div className='p-4'>

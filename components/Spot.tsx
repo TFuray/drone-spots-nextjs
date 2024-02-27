@@ -80,7 +80,7 @@ export default function Spot() {
   }
   console.log(weatherData?.location.region)
   let filteredData = filterByLocation()
-  console.log(filteredData
+  console.log(filteredData)
 
   return (
     <div>
